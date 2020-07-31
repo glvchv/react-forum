@@ -47,11 +47,12 @@ module.exports = {
                 const user = await User.findOne({ username: username });
 
                 if (!user) {
-                    return res.status(404).send('User not found!');
+                    return res.send({message: 'User not found!'});
                 };
                 const matched = await comparePasswords(password, user.password);
+                
                 if (!matched) {
-                    return res.status(400).send('Incorrect password!');
+                    return res.send({message: 'Incorrect password!'});
                 }
 
                 const token = generateToken(username, user._id);
@@ -60,7 +61,7 @@ module.exports = {
                     message: 'Logged In!'
                 });
             } catch (err) {
-                res.status(500).send({
+                res.send({
                     message: err.message
                 });
             }
