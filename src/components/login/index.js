@@ -1,4 +1,5 @@
 import React from 'react';
+import { loginUser } from '../../services/userService';
 
 class Login extends React.Component {
     constructor(props) {
@@ -28,18 +29,7 @@ class Login extends React.Component {
     submitHandler(e) {
         e.preventDefault();
         const {username, password} = this.state;
-        fetch('http://localhost:175/api/user/login',
-            {
-                method: 'POST',
-                body: JSON.stringify({username, password}),
-                headers: {
-                  'Content-Type': 'application/json'
-                }
-        })
-        .then(res => res.json())
-        .then(data => console.log(data.message))
-        .catch(err => console.log('Error 123', err.message));
-        
+        loginUser(username, password);
     }
 
     render() {
