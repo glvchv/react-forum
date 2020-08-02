@@ -8,7 +8,7 @@ async function returnHashedPassword(password) {
 };
 
 function generateToken(username, id) {
-    return jwt.sign({ username, id }, config.privateKey, { expiresIn: 30 * 60 });
+    return jwt.sign({ username, id }, config.privateKey);
 }
 
 function verifyToken(token) {
