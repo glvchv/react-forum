@@ -9,7 +9,7 @@ export function loginUser(username, password) {
         })
         .then(res => res.json())
         .then(data => console.log(data.message))
-        .catch(err => console.log('Error 123', err.message));
+        .catch(err => console.log(err.message));
 };
 
 

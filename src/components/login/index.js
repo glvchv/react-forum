@@ -1,5 +1,6 @@
 import React from 'react';
 import { loginUser } from '../../services/userService';
+import styles from './index.module.css';
 
 class Login extends React.Component {
     constructor(props) {
@@ -28,19 +29,25 @@ class Login extends React.Component {
 
     submitHandler(e) {
         e.preventDefault();
-        const {username, password} = this.state;
+        const { username, password } = this.state;
         loginUser(username, password);
     }
 
     render() {
         return (
-            <form onSubmit={this.submitHandler}>
-                <label>Username: {this.state.username}</label>
-                <input type="text" name="username" onChange={this.setUsername}/>
-                <label>Password: {this.state.password}</label>
-                <input type="password" name="password" onChange={this.setPassword}/>
-                <button type="submit">Login</button>
-            </form>
+            <div className={styles["login-page"]}>
+                <div className={styles.form}>
+                    <h1 className="styles.title">Log in</h1>
+                    <form className={styles["login-form"]} onSubmit={this.submitHandler}>
+                        <label className={styles.label}>Username:</label>
+                        <input type="text" placeholder="johndoe89" onChange={this.setUsername} />
+                        <label className={styles.label}>Password:</label>
+                        <input type="password" placeholder="********" onChange={this.setPassword}/>
+                        <button type="submit">login</button>
+                        <p className={styles.message}>Not registered? <a href="#">Create an account</a></p>
+                    </form>
+                </div>
+            </div>
         )
     }
 }
