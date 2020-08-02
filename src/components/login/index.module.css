@@ -16,6 +16,15 @@
   padding: 8% 0 0;
   margin: auto;
 }
+
+.label {
+  font-family: "Roboto", sans-serif;
+  float: left;
+}
+.title {
+  font-family: "Roboto", sans-serif;
+}
+
 .form {
   position: relative;
   z-index: 1;
@@ -47,6 +56,7 @@
   padding: 15px;
   color: #FFFFFF;
   font-size: 14px;
+  cursor: pointer;
 }
 .form button:hover {
   background: rgb(7, 165, 190);
@@ -59,13 +69,4 @@
 .form .message a {
   color: rgb(0, 178, 184);
   text-decoration: none;
-}
-
-.label {
-    font-family: "Roboto", sans-serif;
-    float: left;
-}
-.title {
-    font-family: "Roboto", sans-serif;
-    text-transform: uppercase;
 }
