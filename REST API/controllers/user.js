@@ -82,7 +82,7 @@ module.exports = {
             };
         },
         verifyUser: async (req, res) => {
-            const token = req.body.token || '';
+            const token = req.headers.authorization || '';
 
             try {
                 const tokenData = verifyToken(token);
