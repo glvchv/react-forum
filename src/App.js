@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import authContext from './context/authContext';
+import { getCookie } from './utils/getCookie';
+import { verifyUser } from './services/userService';
 
 function App(props) {
   const [user, setUser] = useState(null);
@@ -18,6 +20,14 @@ function App(props) {
       loggedIn: false
     });
   }
+
+  useEffect(() => {
+    const token = getCookie('x-auth-token');
+    verifyUser(token, (user) => {
+      logIn(user);
+    });
+
+  }, [])
 
   return (
     <authContext.Provider value={{

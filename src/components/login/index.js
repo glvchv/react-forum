@@ -45,7 +45,6 @@ class Login extends React.Component {
     render() {
         return (
             <div className={styles["login-page"]}>
-                <p>Context: {this.context.loggedIn}</p>
                 <div className={styles.form}>
                     <h1 className={styles.title}>Log in</h1>
                     <form className={styles["login-form"]} onSubmit={this.submitHandler}>
