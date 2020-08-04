@@ -1,0 +1,26 @@
+@media(min-width: 450px) {
+    .post-body {
+        width: 99%;
+        padding: 20px;
+        display: flex;
+        justify-items: flex-start;
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    }
+}
+.post-details {
+    padding: 15px;
+}
+.main {
+    justify-content: center;
+}
+
+.title {
+    text-align: center;
+}
+
+img {
+    height: 8vw;
+    width: 8vw;
+    border: 1px solid;
+    border-radius: 50%;
+}

@@ -5,7 +5,7 @@ module.exports = {
     get: {
         getAllPosts: async (req, res) => {
             try {
-                const posts = await Post.find();
+                const posts = await Post.find().populate('author');
                 res.status(200).send({
                     message: 'Successfull!',
                     data: posts
@@ -21,7 +21,7 @@ module.exports = {
         getPostById: async (req, res) => {
             const id = req.params.id;
             try {
-                const post = await Post.findById(id).populate('replies');
+                const post = await Post.findById(id).populate('replies').populate('author');
                 if (!post) {
                     return res.status(404).send('Post not found!');
                 }

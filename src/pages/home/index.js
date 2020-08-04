@@ -1,6 +1,8 @@
 import React from 'react';
 import authContext from '../../context/authContext';
 import Header from '../../components/header';
+import Post from '../../components/post';
+import styles from './index.module.css';
 
 class HomePage extends React.Component {
     constructor(props) {
@@ -13,7 +15,9 @@ class HomePage extends React.Component {
         return (
             <div>
                 <Header />
-                <div>{this.context.user ? 'loggedin' : 'guest'}</div>
+                <div className={styles.container}>
+                    <Post />
+                </div>
             </div>
         )
     }
