@@ -1,0 +1,30 @@
+.button {
+    font-family: sans-serif;
+    border-radius: 20px;
+    border: 1px;
+    padding: 10px 20px;
+    font-size: 15px;
+    cursor: pointer;
+    color: white;
+}
+
+.default {
+    background-color: rgb(0, 178, 184);
+}
+.default:hover {
+    background-color: rgb(7, 165, 190);
+}
+
+.delete {
+    background-color: rgb(186, 41, 51);
+}
+.delete:hover {
+    background-color: rgb(204, 45, 56);
+}
+
+.edit {
+    background-color: rgb(204, 140, 45);
+}
+.edit:hover {
+    background-color: rgb(199, 136, 44);
+}

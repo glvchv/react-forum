@@ -21,3 +21,10 @@ img {
     border: 1px solid;
     border-radius: 50%;
 }
+.actions {
+    display: flex;
+    justify-content: space-between;
+}
+.buttons button{
+    margin: 1vw;
+}

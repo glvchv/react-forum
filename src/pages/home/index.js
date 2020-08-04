@@ -33,7 +33,7 @@ class HomePage extends React.Component {
                 <div className={styles.container}>
                     {this.state.posts.map(post => {
                         return (
-                            <Post key={post._id} author={post.author} text={post.text} date={post.date} title={post.title} />
+                            <Post key={post._id} post={post} />
                         )
                     })}
                 </div>

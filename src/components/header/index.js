@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './index.module.css';
 import authContext from '../../context/authContext';
+import Button from '../button';
 
 class Header extends React.Component {
     constructor(props) {
@@ -18,7 +19,7 @@ class Header extends React.Component {
                         Rules
                     </a>
                 </div>
-                <a href="#"><button>Login</button></a>
+                <Button type={"default"} text="Login"/>
             </header>
             )
         }
