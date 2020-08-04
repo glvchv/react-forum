@@ -4,7 +4,8 @@
         padding: 20px;
         display: flex;
         justify-items: flex-start;
-        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+        box-shadow: 0 0 1vw 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+        margin: 1vw 0;
     }
 }
 .post-details {
@@ -12,12 +13,8 @@
 }
 .main {
     justify-content: center;
+    margin-left: 2vw;
 }
-
-.title {
-    text-align: center;
-}
-
 img {
     height: 8vw;
     width: 8vw;

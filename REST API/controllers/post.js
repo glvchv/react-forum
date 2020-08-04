@@ -39,10 +39,8 @@ module.exports = {
     post: {
         createPost: async (req, res) => {
             const { title, text, author } = req.body;
-            const currentDate = new Date();
-            
             try {
-                const post = new Post({ title, text, author, date: currentDate });
+                const post = new Post({ title, text, author });
                 await User.findByIdAndUpdate(author, {$push: {'posts': post._id}});
                 const returnObject = await post.save();
                 return res.status(302).send({
