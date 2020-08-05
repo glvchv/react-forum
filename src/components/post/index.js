@@ -20,9 +20,9 @@ const Post = ({ post }) => {
                     <p>{post.likes.length} <small>likes</small></p>
                     <p>{post.replies.length} <small>replies</small></p>
                     <span className={styles.buttons}>
-                        <Button type={"edit"} text={"Edit"}/>
-                        <Button type={"delete"} text={"Delete"}/>
-                        <Button type={"default"} text={"Like"}/>
+                        <Button link={'/edit'} type={"edit"} text={"Edit"}/>
+                        <Button link={'/delete'} type={"delete"} text={"Delete"}/>
+                        <Button link={'/like'} type={"default"} text={"Like"}/>
                     </span>
                 </div>
             </div>

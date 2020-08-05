@@ -2,7 +2,7 @@ import React from 'react';
 import { loginUser } from '../../services/userService';
 import styles from './index.module.css';
 import authContext from '../../context/authContext';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import ErrorMessage from '../error-message';
 
 class Login extends React.Component {
@@ -76,7 +76,7 @@ class Login extends React.Component {
         return (
             <div className={styles["login-page"]}>
                 <div className={styles.form}>
-                    <h1 className={styles.title}>Log in</h1>
+                    <h1 className={styles.title}>Sign in</h1>
                     <form className={styles["login-form"]} onSubmit={this.submitHandler}>
                         <label className={styles.label}>Username:</label>
                         <input type="text" placeholder="johndoe89" onChange={this.setUsername}/>
@@ -85,7 +85,7 @@ class Login extends React.Component {
                         <input type="password" placeholder="********" onChange={this.setPassword}/>
                         <ErrorMessage error={this.state.passwordError} />
                         <button type="submit" disabled={isInvalid}>login</button>
-                        <p className={styles.message}>Not registered? <a href="#">Create an account</a></p>
+                        <p className={styles.message}>Not registered? <Link to={'/register'}>Create an account</Link></p>
                     </form>
                 </div>
             </div>

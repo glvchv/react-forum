@@ -1,8 +1,8 @@
 import React, { useState, useContext } from 'react';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 import authContext from '../../context/authContext';
 import styles from './index.module.css';
-import { loginUser } from '../../services/userService';
+import { registerUser } from '../../services/userService';
 import ErrorMessage from '../error-message';
 
 const RegisterForm = (props) => {
@@ -81,7 +81,7 @@ const RegisterForm = (props) => {
                     <input type="password" placeholder="********" onChange={rePasswordHandler} />
                     <ErrorMessage error={passwordError} />
                     <button type="submit" disabled={isInvalid}>register</button>
-                    <p className={styles.message}>Already registered? <a href="#">Sign in</a></p>
+                    <p className={styles.message}>Already registered? <Link to={'/login'}>Sign in</Link></p>
                 </form>
             </div>
         </div>

@@ -6,6 +6,8 @@
     font-size: 15px;
     cursor: pointer;
     color: white;
+    margin: 0.5vw;
+    text-decoration: none;
 }
 
 .default {

@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './index.module.css';
 import authContext from '../../context/authContext';
 import Button from '../button';
+import { Link } from 'react-router-dom';
 
 class Header extends React.Component {
     constructor(props) {
@@ -13,24 +14,24 @@ class Header extends React.Component {
         if (!this.context.user) {
             return (
                 <header>
-                <a className={styles.forum}>Forum</a>
+                <Link to={"/"} className={styles.forum}>{"< Forum />"}</Link>
                 <div className={styles.links}>
                     <a>
                         Rules
                     </a>
                 </div>
-                <Button type={"default"} text="Login"/>
+                <Button type={"default"} text="Login" link={'/login'}/>
             </header>
             )
         }
         return (
             <header>
-                <a className={styles.forum}>Forum</a>
+                <Link to={"/"} className={styles.forum}>{"< Forum />"}</Link>
                 <div className={styles.links}>
-                    <a> 
+                    <a className={styles.a}> 
                         Posts
                     </a>
-                    <a>
+                    <a className={styles.a}>
                         Rules
                     </a>
                 </div>
