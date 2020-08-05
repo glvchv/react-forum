@@ -4,6 +4,7 @@ import Header from '../../components/header';
 import Post from '../../components/post';
 import styles from './index.module.css';
 import { getAllPosts } from '../../services/postService';
+import Footer from '../../components/footer';
 
 class HomePage extends React.Component {
     constructor(props) {
@@ -37,6 +38,7 @@ class HomePage extends React.Component {
                         )
                     })}
                 </div>
+                <Footer />
             </div>
         )
     }

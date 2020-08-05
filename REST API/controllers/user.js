@@ -43,6 +43,11 @@ module.exports = {
         },
         loginUser: async (req, res) => {
             const { username, password } = req.body;
+            if (username === '' || password === '') {
+                return res.send({
+                    message: 'Invalid data!'
+                })
+            }
             try {
                 const user = await User.findOne({ username: username });
 

@@ -19,8 +19,9 @@ export async function loginUser(username, password, onSuccess, onFailure) {
                 id: res.data._id
             })
         } else {
-            onFailure()
+            onFailure(res.message)
         }
+
     } catch(err) {
         onFailure(err);
     }

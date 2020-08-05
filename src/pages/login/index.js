@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
-import Login from '../../components/login';
+import Login from '../../components/login-form';
 import Header from '../../components/header';
+import Footer from '../../components/footer';
 
 class LoginPage extends React.Component {
 
@@ -9,6 +10,7 @@ class LoginPage extends React.Component {
             <Fragment>
                 <Header />
                 <Login />
+                <Footer />
             </Fragment>
         )
     }

@@ -1,0 +1,11 @@
+.wrap {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: #18191c;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10%;
+}
