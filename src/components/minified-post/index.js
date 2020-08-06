@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './index.module.css';
-import Button from '../button';
 
-const Post = ({ post }) => {
+const Minified = ({post}) => {
+
     return (
         <div className={styles['post-body']}>
             <div className={styles['post-details']}>
@@ -13,21 +13,16 @@ const Post = ({ post }) => {
             <div className={styles.main}>
                 <h2 className={styles.title}>{post.title}</h2>
                 <p className={styles.text}>
-                    {post.text}
+                    {`${post.text.substring(0, 70)}...`}
                 </p>
                 <hr />
                 <div className={styles.actions}>
                     <p>{post.likes.length} <small>likes</small></p>
                     <p>{post.replies.length} <small>replies</small></p>
-                    <span className={styles.buttons}>
-                        <Button link={'/edit'} type={"edit"} text={"Edit"}/>
-                        <Button link={'/delete'} type={"delete"} text={"Delete"}/>
-                        <Button link={'/like'} type={"default"} text={"Like"}/>
-                    </span>
                 </div>
             </div>
         </div>
     )
 }
 
-export default Post;
+export default Minified;

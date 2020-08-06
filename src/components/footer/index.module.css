@@ -9,3 +9,8 @@
     align-items: center;
     padding: 20px 10%;
 }
+
+.forum {
+    text-decoration: none;
+    color: white;
+}

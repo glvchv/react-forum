@@ -17,15 +17,12 @@
     margin-left: 2vw;
 }
 .avatar {
-    height: 8vw;
-    width: 8vw;
+    height: 4vw;
+    width: 4vw;
     border: 1px solid;
     border-radius: 50%;
 }
 .actions {
     display: flex;
     justify-content: space-between;
-}
-.buttons{
-    margin: 1vw;
 }

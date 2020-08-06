@@ -10,7 +10,6 @@ export async function getAllPosts() {
         );
         
         const res = await promise.json();
-        console.log(res.data);
         return res.data;
     } catch (err) {
         console.log(err);

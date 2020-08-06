@@ -1,0 +1,36 @@
+.background {
+    background-color: #dcf7f5;
+}
+.container {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+.text {
+    margin-block-start: 0;
+    margin-block-end: 0;
+    color: white;
+    font-size: 2vw;
+    text-shadow: 1px 1px black;
+}
+
+.card {
+    text-align: center;
+    background-color: lightgrey;
+    padding: 2vw;
+    background-image: url('../../guest-banner.jpg');
+}
+
+.title {
+    font-size: 4vw;
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+.sub-text {
+    color: white;
+    text-align: center;
+    font-size: 2vw;
+    text-shadow: 1px 1px black;
+}
+
