@@ -9,7 +9,6 @@
 }
 .text {
     margin-block-start: 0;
-    margin-block-end: 0;
     color: white;
     font-size: 2vw;
     text-shadow: 1px 1px black;
@@ -31,6 +30,7 @@
     color: white;
     text-align: center;
     font-size: 2vw;
-    text-shadow: 1px 1px black;
+    text-shadow: 2px 2px 2px black;
 }
+
 

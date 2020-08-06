@@ -4,6 +4,7 @@ import { getAllPosts } from '../../services/postService';
 import Header from '../../components/header';
 import Footer from '../../components/footer';
 import styles from './index.module.css';
+import Button from '../../components/button';
 
 const GuestPage = (props) => {
     const [posts, setPosts] = useState([]);
@@ -26,6 +27,7 @@ const GuestPage = (props) => {
                     <p className={styles.text}>Join <span className={styles.title}>{"< Forum />"}</span> now. <br/>
                     Share your ideas and experiences... <br />
                     Ask what interests you!</p>
+                <Button type={'default'} text={'Sign up'} link={'/register'} />
                 </div>
                 <div className={styles.container}>
                     <h2 className={styles['sub-text']}>Here are some of our most intriguing posts ...</h2>
