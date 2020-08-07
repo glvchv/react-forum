@@ -23,6 +23,10 @@ const PostSchema = new mongoose.Schema({
         type: 'ObjectId',
         ref: 'Reply'
     }],
+    category: {
+        type: String,
+        required: true
+    },
     date: {
         type: Date,
         default: Date.now
