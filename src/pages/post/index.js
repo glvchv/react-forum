@@ -4,6 +4,7 @@ import Header from '../../components/header';
 import Footer from '../../components/footer';
 import styles from './index.module.css';
 import { likePost, getAllPosts } from '../../services/postService';
+import Spinner from '../../components/spinner';
 
 class PostPage extends React.Component {
     constructor(props) {
@@ -63,7 +64,7 @@ class PostPage extends React.Component {
             <Fragment>
                 <Header />
                 <div className={styles.container}>
-                    {this.state.isLoading ? <p>Loading...</p> :
+                    {this.state.isLoading ? <Spinner/> :
                         <Post post={this.state.post}
                             likes={this.state.likes}
                             hasLiked={this.state.hasLiked}

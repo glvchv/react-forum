@@ -5,9 +5,11 @@ import Header from '../../components/header';
 import Footer from '../../components/footer';
 import styles from './index.module.css';
 import Button from '../../components/button';
+import Spinner from '../../components/spinner';
 
 const GuestPage = (props) => {
     const [posts, setPosts] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
           async function fetchPosts() {
@@ -15,6 +17,7 @@ const GuestPage = (props) => {
             const sortedByLikes = data.sort((a, b) => b.likes.length - a.likes.length);
             const firstThreeItems = sortedByLikes.slice(0, 3);
             setPosts([...posts, ...firstThreeItems]);
+            setIsLoading(false);
         }
         fetchPosts()
 
@@ -23,6 +26,7 @@ const GuestPage = (props) => {
     return (
         <Fragment>
             <Header />
+            {isLoading && <Spinner/>}
             <div className={styles.background}>
                 <div className={styles.card}>
                     <p className={styles.text}>Join <span className={styles.title}>{"< Forum />"}</span> now. <br/>
