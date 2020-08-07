@@ -3,7 +3,7 @@ import Post from '../../components/post';
 import Header from '../../components/header';
 import Footer from '../../components/footer';
 import styles from './index.module.css';
-import { likePost, getAllPosts } from '../../services/postService';
+import { likePost, getAllPosts, getPostById } from '../../services/postService';
 import Spinner from '../../components/spinner';
 
 class PostPage extends React.Component {

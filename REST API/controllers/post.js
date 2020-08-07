@@ -41,9 +41,9 @@ module.exports = {
     },
     post: {
         createPost: async (req, res) => {
-            const { title, text, author } = req.body;
+            const { title, text, author, category } = req.body;
             try {
-                const post = new Post({ title, text, author });
+                const post = new Post({ title, text, author, category });
                 await User.findByIdAndUpdate(author, {$push: {'posts': post._id}});
                 const returnObject = await post.save();
                 return res.status(302).send({
@@ -53,6 +53,7 @@ module.exports = {
 
             } catch (err) {
                 res.status(400).send({
+                    err,
                     message: 'Duplication of posts!'
                 });
             }
