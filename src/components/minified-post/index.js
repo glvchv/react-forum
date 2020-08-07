@@ -1,17 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styles from './index.module.css';
+import { Link } from 'react-router-dom';
+import authContext from '../../context/authContext';
 
 const Minified = ({post}) => {
+    const context = useContext(authContext);
 
     return (
         <div className={styles['post-body']}>
             <div className={styles['post-details']}>
-                <img className={styles.avatar} src="https://cdn1.thr.com/sites/default/files/imagecache/landscape_928x523/2019/03/avatar-publicity_still-h_2019.jpg" alt="avatar" />
+                {context.user ? 
+                (<img className={styles.avatar} src={process.env.PUBLIC_URL + '/default.png'} /> ):
+                (<img className={styles.avatar} src={post.author.avatarUrl} />)}
                 <p>{post.author.username}</p>
                 <small>{new Date(post.date).toLocaleString()}</small>
             </div>
             <div className={styles.main}>
-                <h2 className={styles.title}>{post.title}</h2>
+                <h2 className={styles.title}><Link to={`/posts/${post._id}`}>{post.title}</Link></h2>
                 <p className={styles.text}>
                     {`${post.text.substring(0, 70)}...`}
                 </p>

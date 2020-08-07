@@ -12,6 +12,8 @@ function App(props) {
       ...user,
       loggedIn: true
     });
+    localStorage.setItem('username', user.username);
+    localStorage.setItem('userId', user.id);
   }
 
   const logOut = () => {

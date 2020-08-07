@@ -5,6 +5,7 @@ import Home from '../../pages/home';
 import Register from '../../pages/register';
 import GuestPage from '../../pages/guest-home';
 import authContext from '../../context/authContext';
+import Post from '../../pages/post';
 
 const Navigation = () => {
     const context = useContext(authContext);
@@ -16,6 +17,7 @@ const Navigation = () => {
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
             <Route path="/guest" component={GuestPage} />
+            <Route path={'/posts/:id'} component={Post} />
         </Switch>
        </BrowserRouter>
     )

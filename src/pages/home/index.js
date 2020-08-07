@@ -1,7 +1,7 @@
 import React from 'react';
 import authContext from '../../context/authContext';
 import Header from '../../components/header';
-import Post from '../../components/post';
+import Minified from '../../components/minified-post';
 import styles from './index.module.css';
 import { getAllPosts } from '../../services/postService';
 import Footer from '../../components/footer';
@@ -18,13 +18,11 @@ class HomePage extends React.Component {
     componentDidMount() {
         const getPosts = async () => {
             const allPosts = await getAllPosts();
-            console.log(allPosts);
             this.setState({
                 posts: allPosts
             })
         }
         getPosts();
-        console.log(this.state.posts)
     }
 
     render() {
@@ -34,7 +32,7 @@ class HomePage extends React.Component {
                 <div className={styles.container}>
                     {this.state.posts.map(post => {
                         return (
-                            <Post key={post._id} post={post} />
+                            <Minified key={post._id} post={post} />
                         )
                     })}
                 </div>

@@ -8,7 +8,7 @@ router.get('/posts/:id', authGuard, postController.get.getPostById);
 
 router.post('/posts', authGuard, postController.post.createPost);
 
-router.patch('/posts/:id',  authGuard, replyController.post.replyToPost);
+router.patch('/posts/:id', authGuard, replyController.post.replyToPost);
 router.patch('/posts/:id/like', authGuard, postController.patch.likePost);
 
 module.exports = router;
