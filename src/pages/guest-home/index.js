@@ -10,13 +10,14 @@ const GuestPage = (props) => {
     const [posts, setPosts] = useState([]);
 
     useEffect(() => {
-        async function fetchPosts() {
+          async function fetchPosts() {
             const data = await getAllPosts();
             const sortedByLikes = data.sort((a, b) => b.likes.length - a.likes.length);
             const firstThreeItems = sortedByLikes.slice(0, 3);
             setPosts([...posts, ...firstThreeItems]);
         }
         fetchPosts()
+
     }, [])
     console.log(posts);
     return (

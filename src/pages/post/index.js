@@ -2,9 +2,8 @@ import React, { Fragment } from 'react';
 import Post from '../../components/post';
 import Header from '../../components/header';
 import Footer from '../../components/footer';
-import { getCookie } from '../../utils/getCookie';
-import { getPostById } from '../../services/postService';
 import styles from './index.module.css';
+import { likePost, getAllPosts } from '../../services/postService';
 
 class PostPage extends React.Component {
     constructor(props) {
@@ -12,34 +11,64 @@ class PostPage extends React.Component {
 
         this.state = {
             post: null,
+            isLoading: true,
             hasLiked: false,
-            isLoading: true
+            likes: 0
         }
 
+        this.handleClick = this.handleClick.bind(this);
     }
 
     componentDidMount() {
         const getPost = async () => {
-            console.log('getPost invoked!');
             const id = this.props.match.params.id;
-            const token = getCookie('x-auth-token');
-            const data = await getPostById(id, token);
-            console.log(data);
-            this.setState(() => ({
-                post: data,
-                isLoading: false
-            }));
-        };
+            try {
+                const userId = localStorage.getItem('userId')
+                const data = await getAllPosts();
+                const currentPost = data.find(p => p._id == id);
+                console.log(currentPost);
+                const alreadyLiked = currentPost.likes.find(u => u == userId) === undefined ? false : true;
+                this.setState({
+                    post: currentPost,
+                    isLoading: false,
+                    likes: currentPost.likes.length,
+                    hasLiked: alreadyLiked
+                });
+            } catch (err) {
+                console.log(err);
+            }
+        }
         getPost();
     }
 
+
+    componentWillUnmount() {
+        console.log('Component unmounting!');
+        if (this.state.likes > this.state.post.likes.length) {
+            likePost(this.state.post._id);
+        }
+
+    };
+
+
+    async handleClick() {
+        this.setState((state) => ({
+            likes: state.likes + 1,
+            hasLiked: true,
+        }));
+    }
 
     render() {
         return (
             <Fragment>
                 <Header />
                 <div className={styles.container}>
-                    {this.state.isLoading ? <p>Loading</p> : <Post post={this.state.post} />}
+                    {this.state.isLoading ? <p>Loading...</p> :
+                        <Post post={this.state.post}
+                            likes={this.state.likes}
+                            hasLiked={this.state.hasLiked}
+                            handleClick={this.handleClick}
+                        />}
                 </div>
                 <Footer />
             </Fragment>

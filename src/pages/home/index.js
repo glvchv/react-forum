@@ -17,12 +17,16 @@ class HomePage extends React.Component {
 
     componentDidMount() {
         const getPosts = async () => {
-            const allPosts = await getAllPosts();
-            this.setState({
-                posts: allPosts
-            })
+                const allPosts = await getAllPosts();
+                this.setState({
+                    posts: allPosts
+                })
         }
         getPosts();
+    }
+
+    componentWillUnmount() {
+        console.log('unmonting')
     }
 
     render() {

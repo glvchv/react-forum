@@ -27,11 +27,11 @@ module.exports = {
                         message: 'Post not found!'
                     });
                 }
-                console.log(post);
-                res.status(300).send({
+                res.send({
                     message: 'Found!',
                     data: post
                 });
+                console.log('LIKES = ' + post);
             } catch (err) {
                 res.send({
                     message: err.message
@@ -58,25 +58,25 @@ module.exports = {
             }
         }
     },
-    patch: {
+    put: {
         likePost: async (req, res) => {
             const { id } = req.params;
             const { userId } = req.body;
-    
+
             try {
                 const post = await Post.findById(id);
                 const result = post.likes.find(id => id == userId);
-                if (result) {
+                if (result !== undefined) {
                     res.send({
                         message: 'You have already liked this post!'
                     });
                     return;
                 }
     
-                await Post.findByIdAndUpdate(id, {$push: {likes: userId}});
-    
+                const newPost = await Post.findByIdAndUpdate(id, {$push: {likes: userId}});
                 res.send({
-                    message: 'Post Liked!'
+                    message: 'Post Liked!',
+                    data: newPost
                 });
     
             } catch (err) {
