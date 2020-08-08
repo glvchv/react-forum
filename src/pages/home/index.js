@@ -6,24 +6,31 @@ import styles from './index.module.css';
 import { getAllPosts } from '../../services/postService';
 import Footer from '../../components/footer';
 import Spinner from '../../components/spinner';
+import SearchField from '../../components/search-field';
 
 class HomePage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             posts: [],
-            isLoading: true
+            isLoading: true,
+            filterBy: 'all',
+            filtered: [],
         }
+        this.filterPostsByWord = this.filterPostsByWord.bind(this);
+        this.filterBySelect = this.filterBySelect.bind(this);
+        this.filterByButton = this.filterByButton.bind(this);
     }
     static contextType = authContext;
 
     componentDidMount() {
         const getPosts = async () => {
-                const allPosts = await getAllPosts();
-                this.setState({
-                    posts: allPosts,
-                    isLoading: false
-                })
+            const allPosts = await getAllPosts();
+            this.setState({
+                posts: allPosts,
+                isLoading: false,
+                filtered: allPosts
+            })
         }
         getPosts();
     }
@@ -32,13 +39,59 @@ class HomePage extends React.Component {
         console.log('unmonting')
     }
 
+    filterPostsByWord(e) {
+        this.setState({
+            filterBy: e.target.value,
+            isLoading: true
+        })
+        const filteredPosts = this.state.posts.filter(p => p.title.toLowerCase().includes(e.target.value));
+        this.setState({
+            filtered: filteredPosts,
+            isLoading: false
+        });
+    };
+
+    filterBySelect(e) {
+        this.setState({ filterBy: e.target.value, isLoading: true });
+        const defaultPosts = this.state.posts;
+        switch (e.target.value) {
+            case 'all': this.setState({ filtered: defaultPosts, isLoading: false }); break;
+            default: 
+                const filteredPosts = this.state.posts.filter(p => p.category === e.target.value);
+                this.setState({
+                    filtered: filteredPosts,
+                    isLoading: false
+                });
+            ; break;
+        }
+    }
+    filterByButton(e) {
+        if (e.target.value === 'newest') {
+            const sorted = this.state.posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+            this.setState({
+                filtered: sorted
+            })
+        }
+        if (e.target.value === 'top') {
+            const sorted = this.state.posts.sort((a, b) => b.likes.length - a.likes.length);
+            this.setState({
+                filtered: sorted
+            })
+        }
+    }
+
     render() {
         return (
             <div>
                 <Header />
-                {this.state.isLoading && <Spinner/>}
+                {this.state.isLoading && <Spinner />}
                 <div className={styles.container}>
-                    {this.state.posts.map(post => {
+
+                    <SearchField filterBySelect={this.filterBySelect}
+                        filterPostsByWord={this.filterPostsByWord}
+                        filterByButton={this.filterByButton}
+                        filterBy={this.state.filterBy} />
+                    {this.state.filtered.map(post => {
                         return (
                             <Minified key={post._id} post={post} />
                         )
