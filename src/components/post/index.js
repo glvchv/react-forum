@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import styles from './index.module.css';
 import Button from '../button';
+import Spinner from  '../spinner';
 
 const Post = ({ post, likes, hasLiked, handleClick }) => {
     const [isAuth, setIsAuth] = useState(false);
 
     useEffect(() => {
         if (post.author._id == localStorage.getItem('userId')) {
-            setIsAuth(true)
+            setIsAuth(true);
         }
     }, []);
     
-
     return (
         <div className={styles['post-body']}>
             <div className={styles['post-details']}>
@@ -27,6 +27,7 @@ const Post = ({ post, likes, hasLiked, handleClick }) => {
                 <hr />
                 <div className={styles.actions}>
                     <p>{likes} <small>likes</small></p>
+                    <p><small>Category:</small>{post.category}</p>
                     <p>{post.replies.length} <small>replies</small></p>
 
                     {isAuth ? (<span className={styles.buttons}><Button link={'/edit'} type={"edit"} text={"Edit"} />

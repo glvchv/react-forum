@@ -10,5 +10,10 @@
 }
 
 .buttons {
-    
+    background-color: #008CBA;
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+    border: none;
+    padding: 10px;
 }

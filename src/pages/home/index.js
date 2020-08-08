@@ -7,6 +7,7 @@ import { getAllPosts } from '../../services/postService';
 import Footer from '../../components/footer';
 import Spinner from '../../components/spinner';
 import SearchField from '../../components/search-field';
+import Pagination from '../../components/pagination';
 
 class HomePage extends React.Component {
     constructor(props) {
@@ -16,7 +17,10 @@ class HomePage extends React.Component {
             isLoading: true,
             filterBy: 'all',
             filtered: [],
+            postsPerPage: 4,
+            currentPage: 1,
         }
+
         this.filterPostsByWord = this.filterPostsByWord.bind(this);
         this.filterBySelect = this.filterBySelect.bind(this);
         this.filterByButton = this.filterByButton.bind(this);
@@ -56,13 +60,12 @@ class HomePage extends React.Component {
         const defaultPosts = this.state.posts;
         switch (e.target.value) {
             case 'all': this.setState({ filtered: defaultPosts, isLoading: false }); break;
-            default: 
+            default:
                 const filteredPosts = this.state.posts.filter(p => p.category === e.target.value);
                 this.setState({
                     filtered: filteredPosts,
                     isLoading: false
-                });
-            ; break;
+                }); break;
         }
     }
     filterByButton(e) {
@@ -79,8 +82,16 @@ class HomePage extends React.Component {
             })
         }
     }
+    paginate = (number) => {
+        this.setState({
+            currentPage: number
+        })
+    };
 
     render() {
+        const indexOfLastPost = this.state.currentPage * this.state.postsPerPage;
+        const indexOfFirstPost = indexOfLastPost - this.state.postsPerPage;
+        const currentPosts = this.state.filtered.slice(indexOfFirstPost, indexOfLastPost);
         return (
             <div>
                 <Header />
@@ -91,11 +102,17 @@ class HomePage extends React.Component {
                         filterPostsByWord={this.filterPostsByWord}
                         filterByButton={this.filterByButton}
                         filterBy={this.state.filterBy} />
-                    {this.state.filtered.map(post => {
+                    {this.state.filtered.length === 0 && <p className={styles.notfound}>None posts found!</p>}
+                    {currentPosts.map(post => {
                         return (
                             <Minified key={post._id} post={post} />
                         )
                     })}
+                    <div className={styles['page-wrapper']}>
+                        <Pagination totalPosts={this.state.filtered.length}
+                            postsPerPage={this.state.postsPerPage}
+                            paginate={this.paginate} />
+                    </div>
                 </div>
                 <Footer />
             </div>

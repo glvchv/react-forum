@@ -10,19 +10,23 @@ const Minified = ({post}) => {
         <div className={styles['post-body']}>
             <div className={styles['post-details']}>
                 {context.user ? 
-                (<img className={styles.avatar} src={process.env.PUBLIC_URL + '/default.png'} /> ):
-                (<img className={styles.avatar} src={post.author.avatarUrl} />)}
+                (<img className={styles.avatar} src={post.author.avatarUrl} />) :
+                (<img className={styles.avatar} src={process.env.PUBLIC_URL + '/default.png'} /> )}
                 <p>{post.author.username}</p>
                 <small>{new Date(post.date).toLocaleString()}</small>
             </div>
             <div className={styles.main}>
-                <h2 className={styles.title}><Link to={`/posts/${post._id}`}>{post.title}</Link></h2>
+                {context.user ?
+                ( <h2><Link className={styles.title} to={`/posts/${post._id}`}>{post.title}</Link></h2>)
+                : (<h2 className={styles.title}>{post.title}</h2>)}
+               
                 <p className={styles.text}>
                     {`${post.text.substring(0, 70)}...`}
                 </p>
                 <hr />
                 <div className={styles.actions}>
                     <p>{post.likes.length} <small>likes</small></p>
+                    <p><small>Category:</small>{post.category}</p>
                     <p>{post.replies.length} <small>replies</small></p>
                 </div>
             </div>
