@@ -1,4 +1,4 @@
-import React, { useEffect, useState, Fragment } from 'react';
+import React, { useEffect, useState, Fragment, useRef } from 'react';
 import Minified from '../../components/minified-post';
 import { getAllPosts } from '../../services/postService';
 import Header from '../../components/header';
@@ -12,27 +12,36 @@ const GuestPage = (props) => {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-          async function fetchPosts() {
+        let isSubscribed = true;
+        async function fetchPosts() {
             const data = await getAllPosts();
             const sortedByLikes = data.sort((a, b) => b.likes.length - a.likes.length);
             const firstThreeItems = sortedByLikes.slice(0, 3);
-            setPosts([...posts, ...firstThreeItems]);
-            setIsLoading(false);
+            if (isSubscribed) {
+                setPosts([...posts, ...firstThreeItems]);
+                setIsLoading(false);
+            }
         }
-        fetchPosts()
+
+        fetchPosts();
+
+
+        return function cleanup() {
+            isSubscribed = false;
+        }
 
     }, [])
     console.log(posts);
     return (
         <Fragment>
             <Header />
-            {isLoading && <Spinner/>}
+            {isLoading && <Spinner />}
             <div className={styles.background}>
                 <div className={styles.card}>
-                    <p className={styles.text}>Join <span className={styles.title}>{"< Forum />"}</span> now. <br/>
+                    <p className={styles.text}>Join <span className={styles.title}>{"< Forum />"}</span> now. <br />
                     Share your ideas and experiences... <br />
                     Ask what interests you!</p>
-                <Button type={'default'} text={'Sign up'} link={'/register'} />
+                    <Button type={'default'} text={'Sign up'} link={'/register'} />
                 </div>
                 <div className={styles.container}>
                     <h2 className={styles['sub-text']}>Here are some of our most intriguing posts ...</h2>

@@ -11,7 +11,7 @@ async function getAllPosts() {
                 headers: {
                     'Content-Type': 'application/json'
                 }
-            }, 
+            },
         );
 
         const res = await promise.json();
