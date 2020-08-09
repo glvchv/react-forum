@@ -30,3 +30,11 @@
 .buttons{
     margin: 1vw;
 }
+
+.like button{
+    padding: 10px;
+    border: none;
+    font-size: 20px;
+    background-color: white;
+    cursor: pointer;
+}

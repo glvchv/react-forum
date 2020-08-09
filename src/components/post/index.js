@@ -34,7 +34,7 @@ const Post = ({ post, likes, hasLiked, handleClick }) => {
                     {isAuth ? (<span className={styles.buttons}><Button link={'/edit'} type={"edit"} text={"Edit"} />
                         <Button link={'/delete'} type={"delete"} text={"Delete"} /></span>)
 
-                        : (<span className={styles.button}>
+                        : (<span className={styles.like}>
                             <button disabled={hasLiked} onClick={handleClick}>💙</button></span>
                             )}
                 </div>
