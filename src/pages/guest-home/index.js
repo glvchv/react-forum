@@ -1,4 +1,4 @@
-import React, { useEffect, useState, Fragment, useRef } from 'react';
+import React, { useEffect, useState, Fragment } from 'react';
 import Minified from '../../components/minified-post';
 import { getAllPosts } from '../../services/postService';
 import Header from '../../components/header';

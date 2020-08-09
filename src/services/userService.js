@@ -17,13 +17,13 @@ export async function loginUser(username, password, onSuccess, onFailure) {
             onSuccess({
                 username: res.data.username,
                 id: res.data._id
-            })
+            }, res.message)
         } else {
             onFailure(res.message)
         }
 
     } catch (err) {
-        onFailure(err);
+        onFailure(err.message);
     }
 };
 

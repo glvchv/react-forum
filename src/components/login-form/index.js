@@ -4,6 +4,7 @@ import styles from './index.module.css';
 import authContext from '../../context/authContext';
 import { withRouter, Link } from 'react-router-dom';
 import ErrorMessage from '../error-message';
+import { dispatchSuccess, dispatchError } from '../../utils/setNotification';
 
 class Login extends React.Component {
     constructor(props) {
@@ -63,11 +64,12 @@ class Login extends React.Component {
         e.preventDefault();
         const { username, password } = this.state;
         loginUser(username, password,
-            (user) => {
+            (user, msg) => {
                 this.context.logIn(user);
                 this.props.history.push('/');
+                dispatchSuccess(msg)
             }, (e) => {
-                console.log(e)
+                dispatchError(e)
             });
     }
 

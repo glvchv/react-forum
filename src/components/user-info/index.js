@@ -7,13 +7,13 @@ const UserInfo = ({ user }) => {
     useEffect(() => {
         const loggedUser = localStorage.getItem('userId');
         loggedUser === user._id ? setIsOwn(true) : setIsOwn(false);
-    }, [])
+    }, [user._id])
 
 
     return (
         <div className={styles.wrapper}>
             <div className={styles['avatar-section']}>
-                <img src={process.env.PUBLIC_URL + '/default.png'} className={styles.avatar} />
+                <img src={user.avatarUrl || process.env.PUBLIC_URL + '/default.png'} className={styles.avatar} />
                 {isOwn ?
                     (<Fragment>
                         <input type='file' />

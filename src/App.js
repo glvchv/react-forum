@@ -3,6 +3,9 @@ import './App.css';
 import authContext from './context/authContext';
 import { getCookie } from './utils/getCookie';
 import { verifyUser } from './services/userService';
+import ReactNotification from 'react-notifications-component'
+import 'react-notifications-component/dist/theme.css'
+
 
 function App(props) {
   const [user, setUser] = useState(null);
@@ -33,15 +36,18 @@ function App(props) {
   }, [])
 
   return (
-    <authContext.Provider value={{
-      user,
-      logIn,
-      logOut
-    }}>
-      <div className='main-container'>
-        {props.children}
-      </div>
-    </authContext.Provider>
+    <>
+      <ReactNotification />
+      <authContext.Provider value={{
+        user,
+        logIn,
+        logOut
+      }}>
+        <div className='main-container'>
+          {props.children}
+        </div>
+      </authContext.Provider>
+    </>
   );
 }
 

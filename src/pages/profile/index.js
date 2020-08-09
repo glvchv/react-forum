@@ -23,7 +23,7 @@ const Profile = (props) => {
             setIsLoading(false);
         }
         getUserInfo();
-    }, []);
+    }, [id]);
 
     return (
         <Fragment>

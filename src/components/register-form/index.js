@@ -4,6 +4,7 @@ import authContext from '../../context/authContext';
 import styles from './index.module.css';
 import { registerUser } from '../../services/userService';
 import ErrorMessage from '../error-message';
+import { dispatchSuccess, dispatchError } from '../../utils/setNotification';
 
 const RegisterForm = (props) => {
     const context = useContext(authContext);
@@ -58,11 +59,12 @@ const RegisterForm = (props) => {
         e.preventDefault();
 
         registerUser(username, password,
-            (user) => {
+            (user, msg) => {
                 context.logIn(user);
                 props.history.push('/');
+                dispatchSuccess(msg)
             }, (e) => {
-                console.log(e)
+                dispatchError(e);
             });
     }
 

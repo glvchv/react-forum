@@ -1,0 +1,31 @@
+.avatar {
+    width: 3vw;
+    height: 3vw;
+    border-radius: 50%;
+}
+.wrapper {
+    border: 1px solid black;
+    padding: 1vw;
+    display: flex;
+    justify-content: space-between;
+    margin: 2vw;
+}
+.actions {
+    display: flex;
+    justify-content: space-between;
+}
+.actions button {
+    padding: 10px;
+    border: none;
+    font-size: 20px;
+    background-color: white;
+    cursor: pointer;
+}
+.post-details {
+    margin-left: 2vw;
+    text-align: center;
+}
+.main {
+    margin-right: 2vw;
+    width: 100%
+}

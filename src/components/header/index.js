@@ -11,31 +11,28 @@ class Header extends React.Component {
     static contextType = authContext;
 
     render() {
+        const userId = localStorage.getItem('userId');
+
         if (!this.context.user) {
             return (
                 <header>
-                <Link to={"/"} className={styles.forum}>{"< Forum />"}</Link>
-                <div className={styles.links}>
-                    <a>
-                        Rules
-                    </a>
-                </div>
-                <Button type={"default"} text="Login" link={'/login'}/>
-            </header>
+                    <Link to={"/"} className={styles.forum}>{"< Forum />"}</Link>
+                    <div className={styles.links}>
+                        <Link to='/rules'>Rules</Link>
+                    </div>
+                    <Button type={"default"} text="Login" link={'/login'} />
+                </header>
             )
         }
         return (
             <header>
                 <Link to={"/"} className={styles.forum}>{"< Forum />"}</Link>
                 <div className={styles.links}>
-                    <a className={styles.a}> 
-                        Posts
-                    </a>
-                    <a className={styles.a}>
-                        Rules
-                    </a>
+                    <Link to='/rules'>Rules</Link>
                 </div>
-                <a href="#">Profile</a>
+                <div className={styles.links}>
+                    <Link to={`/profile/${userId}`}>Profile</Link>
+                </div>
             </header>
         )
     }

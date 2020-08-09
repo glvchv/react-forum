@@ -5,7 +5,7 @@ module.exports = {
     get: {
         getAllPosts: async (req, res) => {
             try {
-                const posts = await Post.find().populate('author');
+                const posts = await Post.find().populate('author').populate('replies');
                 res.status(200).send({
                     message: 'Successfull!',
                     data: posts

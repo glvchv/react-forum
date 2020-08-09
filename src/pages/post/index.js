@@ -5,6 +5,7 @@ import Footer from '../../components/footer';
 import styles from './index.module.css';
 import { likePost, getAllPosts, getPostById } from '../../services/postService';
 import Spinner from '../../components/spinner';
+import Reply from '../../components/reply';
 
 class PostPage extends React.Component {
     constructor(props) {
@@ -64,12 +65,21 @@ class PostPage extends React.Component {
             <Fragment>
                 <Header />
                 <div className={styles.container}>
-                    {this.state.isLoading ? <Spinner/> :
+                    {this.state.isLoading ? <Spinner /> :
                         <Post post={this.state.post}
                             likes={this.state.likes}
                             hasLiked={this.state.hasLiked}
                             handleClick={this.handleClick}
-                        />}
+                        />
+                    }
+                    <div className={styles['replies-container']}>
+                        {this.state.isLoading ? <Spinner /> :
+                            this.state.post.replies.map(r => (
+                                <Reply data={r} key={r._id} />
+                            ))
+                        }
+                    </div>
+
                 </div>
                 <Footer />
             </Fragment>

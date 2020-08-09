@@ -32,7 +32,7 @@ module.exports = {
             }
         },
     },
-    patch: {
+    put: {
         likeReply: async (req, res) => {
             const { id } = req.params;
             const { userId } = req.body;
