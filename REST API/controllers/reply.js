@@ -6,7 +6,7 @@ module.exports = {
     get: {
 
     }, 
-    post: {
+    patch: {
         replyToPost: async (req, res) => {
             const { id, authorId, text } = req.body;
             const date = new Date();
@@ -27,7 +27,7 @@ module.exports = {
                 });
             } catch (e) {
                 res.send({
-                    message: err.message
+                    message: e.message
                 });
             }
         },

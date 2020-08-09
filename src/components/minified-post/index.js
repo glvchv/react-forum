@@ -10,7 +10,7 @@ const Minified = ({post}) => {
         <div className={styles['post-body']}>
             <div className={styles['post-details']}>
                 {context.user ? 
-                (<img className={styles.avatar} src={post.author.avatarUrl} />) :
+                (<img className={styles.avatar} src={post.author.avatarUrl || process.env.PUBLIC_URL + '/default.png'} />) :
                 (<img className={styles.avatar} src={process.env.PUBLIC_URL + '/default.png'} /> )}
                 <p>{post.author.username}</p>
                 <small>{new Date(post.date).toLocaleString()}</small>

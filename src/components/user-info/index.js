@@ -1,14 +1,25 @@
-import React, { useState, Fragment, useEffect } from 'react';
+import React, { useState, Fragment, useEffect, useContext } from 'react';
 import styles from './index.module.css';
+import authContext from '../../context/authContext';
+import { withRouter, useHistory } from 'react-router-dom';
+import { dispatchSuccess } from '../../utils/setNotification';
 
-const UserInfo = ({ user }) => {
+const UserInfo = ( props ) => {
     const [isOwn, setIsOwn] = useState(false);
+    const context = useContext(authContext);
+    const { user } = props;
+    const history = useHistory();
 
     useEffect(() => {
         const loggedUser = localStorage.getItem('userId');
         loggedUser === user._id ? setIsOwn(true) : setIsOwn(false);
     }, [user._id])
 
+    const handleLogout = () => {
+        history.push('/');
+        context.logOut();
+        dispatchSuccess('Successfully logged out!');
+    } 
 
     return (
         <div className={styles.wrapper}>
@@ -21,7 +32,7 @@ const UserInfo = ({ user }) => {
                     </Fragment>)
                     : ''
                 }
-
+                <button className={styles.logout} onClick={handleLogout}>Logout</button>
             </div>
             <div className={styles['personal-section']}>
                 <div className={styles.leftside}>
@@ -37,4 +48,4 @@ const UserInfo = ({ user }) => {
     )
 }
 
-export default UserInfo;
+export default withRouter(UserInfo);

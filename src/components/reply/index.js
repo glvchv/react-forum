@@ -25,17 +25,12 @@ const Reply = ({ data }) => {
             setIsLoading(false);
         }
         getAuhtorInfo();
-
-        return function updateLikes() {
-            if (likes > data.likes.length) {
-                likeReply(data._id);
-            }
-        }
     }, [authorId]);
 
     const handleClick = () => {
         setHasLiked(true);
         setLikes(likes + 1);
+        likeReply(data._id);
     }
 
     return (

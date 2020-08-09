@@ -43,21 +43,12 @@ class PostPage extends React.Component {
         getPost();
     }
 
-
-    componentWillUnmount() {
-        console.log('Component unmounting!');
-        if (this.state.likes > this.state.post.likes.length) {
-            likePost(this.state.post._id);
-        }
-
-    };
-
-
     async handleClick() {
         this.setState((state) => ({
             likes: state.likes + 1,
             hasLiked: true,
-        }));
+        }))
+        likePost(this.state.post._id);
     }
 
     render() {

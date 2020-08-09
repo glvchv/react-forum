@@ -76,7 +76,7 @@ export async function registerUser(username, password, onSuccess, onFailure) {
         }
 
     } catch (err) {
-        onFailure(err);
+        onFailure(err.message);
     }
 };
 
@@ -99,5 +99,6 @@ export async function getProfile(id, token) {
         console.log(err.message);
     }
 }
+
 
 

@@ -12,8 +12,7 @@ function App(props) {
 
   const logIn = (user) => {
     setUser({
-      ...user,
-      loggedIn: true
+      ...user
     });
     localStorage.setItem('username', user.username);
     localStorage.setItem('userId', user.id);
@@ -23,8 +22,9 @@ function App(props) {
     document.cookie = "x-auth-token= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
     localStorage.clear();
     setUser({
-      loggedIn: false
+      user: null
     });
+    window.location.reload(false);
   }
 
   useEffect(() => {
@@ -33,7 +33,7 @@ function App(props) {
       logIn(user);
     });
 
-  }, [])
+  }, []);
 
   return (
     <>

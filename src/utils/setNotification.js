@@ -8,7 +8,7 @@ export function dispatchSuccess(message) {
         insert: "top",
         container: "top-center",
         dismiss: {
-            duration: 5000,
+            duration: 2000,
             onScreen: true
           }
     })
@@ -22,7 +22,7 @@ export function dispatchError(message) {
         insert: "top",
         container: "top-center",
         dismiss: {
-            duration: 5000,
+            duration: 2000,
             onScreen: true
           }
     })

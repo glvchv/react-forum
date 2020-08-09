@@ -16,7 +16,7 @@ const Post = ({ post, likes, hasLiked, handleClick }) => {
     return (
         <div className={styles['post-body']}>
             <div className={styles['post-details']}>
-                <img className={styles.avatar} src="https://cdn1.thr.com/sites/default/files/imagecache/landscape_928x523/2019/03/avatar-publicity_still-h_2019.jpg" alt="avatar" />
+                <img className={styles.avatar} src={post.author.avatarUrl || process.env.PUBLIC_URL + '/default.png'} alt="avatar" />
                 <p><Link to={`/profile/${post.author._id}`}>{post.author.username}</Link></p>
                 <small>{new Date(post.date).toLocaleString()}</small>
             </div>

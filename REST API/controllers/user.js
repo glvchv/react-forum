@@ -72,20 +72,6 @@ module.exports = {
             }
 
         },
-        logoutUser: async (req, res) => {
-            const token = req.headers.authorization;
-
-            try {
-                await BlackList.create({ token });
-                res.send({
-                    message: 'Logged out!'
-                });
-            } catch (err) {
-                res.send({
-                    message: err.message
-                });
-            };
-        },
         verifyUser: async (req, res) => {
             const token = req.headers.authorization || '';
 

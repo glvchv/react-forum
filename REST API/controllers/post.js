@@ -10,7 +10,7 @@ module.exports = {
                     message: 'Successfull!',
                     data: posts
                 });
-            } catch(err) {
+            } catch (err) {
                 res.send({
                     message: err.message
                 });
@@ -44,7 +44,7 @@ module.exports = {
             const { title, text, author, category } = req.body;
             try {
                 const post = new Post({ title, text, author, category });
-                await User.findByIdAndUpdate(author, {$push: {'posts': post._id}});
+                await User.findByIdAndUpdate(author, { $push: { 'posts': post._id } });
                 const returnObject = await post.save();
                 return res.status(302).send({
                     message: 'Successfully posted!',
@@ -73,13 +73,13 @@ module.exports = {
                     });
                     return;
                 }
-    
-                const newPost = await Post.findByIdAndUpdate(id, {$push: {likes: userId}});
+
+                const newPost = await Post.findByIdAndUpdate(id, { $push: { likes: userId } });
                 res.send({
                     message: 'Post Liked!',
                     data: newPost
                 });
-    
+
             } catch (err) {
                 res.send({
                     message: err.message

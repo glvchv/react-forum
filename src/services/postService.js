@@ -34,7 +34,6 @@ async function getPostById(id) {
                 }
             });
         const res = await promise.json();
-        console.log(res.data);
         return res.data;
     } catch (err) {
         dispatchError(err.message);
@@ -53,10 +52,9 @@ async function likePost(id) {
                 }
             }
         );
-
-        const res = promise.json();
+        const res = await promise.json();
+        dispatchSuccess(res.message)
         return res.data;
-
     } catch (err) {
         dispatchError(err.message);
     }
