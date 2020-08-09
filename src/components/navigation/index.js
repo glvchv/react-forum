@@ -6,7 +6,7 @@ import Register from '../../pages/register';
 import GuestPage from '../../pages/guest-home';
 import authContext from '../../context/authContext';
 import Post from '../../pages/post';
-import Spinner from '../spinner';
+import Profile from '../../pages/profile';
 
 const Navigation = () => {
     const context = useContext(authContext);
@@ -15,12 +15,12 @@ const Navigation = () => {
        <BrowserRouter>
         <Switch>
             <Route path='/' exact render={() => (context.user ? (<Home/>) : (<Redirect to='/guest'/>))}/>
-            <Route path="/guest" render={() => (!context.user ? (<GuestPage/>) : (<Redirect to='/'/>))}/>
-            <Route path="/login" component={Login} />
-            <Route path="/register" component={Register} />
-            <Route path="/guest" component={GuestPage} />
+            <Route path='/guest' render={() => (!context.user ? (<GuestPage/>) : (<Redirect to='/'/>))}/>
+            <Route path='/login' component={Login} />
+            <Route path='/register' component={Register} />
+            <Route path='/guest' component={GuestPage} />
             <Route path='/posts/:id' component={Post} />
-            <Route path='/spinner' component={Spinner}/>
+            <Route path='/profile/:id' component={Profile} />
         </Switch>
        </BrowserRouter>
     )

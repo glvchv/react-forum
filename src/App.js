@@ -38,7 +38,9 @@ function App(props) {
       logIn,
       logOut
     }}>
-      {props.children}
+      <div className='main-container'>
+        {props.children}
+      </div>
     </authContext.Provider>
   );
 }

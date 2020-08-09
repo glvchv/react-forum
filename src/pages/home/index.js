@@ -39,10 +39,6 @@ class HomePage extends React.Component {
         getPosts();
     }
 
-    componentWillUnmount() {
-        console.log('unmonting')
-    }
-
     filterPostsByWord(e) {
         this.setState({
             filterBy: e.target.value,

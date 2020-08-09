@@ -25,7 +25,6 @@ const GuestPage = (props) => {
 
         fetchPosts();
 
-
         return function cleanup() {
             isSubscribed = false;
         }

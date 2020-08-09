@@ -18,12 +18,12 @@ const authGuard = async (req, res, next) => {
             });
             return;
         }
-        
+
         next();
-        
-    } catch(err) {
+
+    } catch (err) {
         res.send({
-            message: 'UNAUTHORIZED!'
+            message: 'UNAUTHORIZED!',
         })
     }
 };

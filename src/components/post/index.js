@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styles from './index.module.css';
 import Button from '../button';
 import Spinner from  '../spinner';
+import  {Link } from 'react-router-dom';
 
 const Post = ({ post, likes, hasLiked, handleClick }) => {
     const [isAuth, setIsAuth] = useState(false);
@@ -16,7 +17,7 @@ const Post = ({ post, likes, hasLiked, handleClick }) => {
         <div className={styles['post-body']}>
             <div className={styles['post-details']}>
                 <img className={styles.avatar} src="https://cdn1.thr.com/sites/default/files/imagecache/landscape_928x523/2019/03/avatar-publicity_still-h_2019.jpg" alt="avatar" />
-                <p>{post.author.username}</p>
+                <p><Link to={`/profile/${post.author._id}`}>{post.author.username}</Link></p>
                 <small>{new Date(post.date).toLocaleString()}</small>
             </div>
             <div className={styles.main}>
