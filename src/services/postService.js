@@ -62,15 +62,15 @@ async function likePost(id) {
 
 async function likeReply(id) {
     try {
-        const promise = await fetch(`http://localhost:175/api/like/reply/${id}`, 
-        {
-            method: 'PUT',
-            body: JSON.stringify({ userId }),
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': token
-            }
-        });
+        const promise = await fetch(`http://localhost:175/api/like/reply/${id}`,
+            {
+                method: 'PUT',
+                body: JSON.stringify({ userId }),
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': token
+                }
+            });
 
         const res = await promise.json();
         dispatchSuccess(res.message)
@@ -80,9 +80,30 @@ async function likeReply(id) {
     }
 }
 
+async function createPost(title, text, category, onSuccess, onFailure) {
+    try {
+        const promise = await fetch('http://localhost:175/api/posts', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': token
+            },
+            body: JSON.stringify({ title, text, category, author: userId })
+        });
+
+        const res = await promise.json();
+        if (res.data) {
+            onSuccess(res.message);
+        }
+    } catch (err) {
+        onFailure(err);
+    }
+}
+
 export {
     getAllPosts,
     getPostById,
     likePost,
-    likeReply
+    likeReply,
+    createPost
 }

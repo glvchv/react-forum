@@ -12,6 +12,7 @@ import Spinner from '../spinner';
 const Navigation = () => {
     const context = useContext(authContext);
     const RulesComponent = React.lazy(() => import('../../pages/rules'));
+    const CreatePostPage = React.lazy(() => import('../../pages/create-post-page'));
 
     return (
         <BrowserRouter>
@@ -24,6 +25,7 @@ const Navigation = () => {
                 <Route path='/posts/:id' component={Post} />
                 <Route path='/profile/:id' component={Profile} />
                 <Suspense fallback={<Spinner />}>
+                    <Route path='/create-post' component={CreatePostPage} />
                     <Route path='/rules' component={RulesComponent} />
                 </Suspense>
             </Switch>

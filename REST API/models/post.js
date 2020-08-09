@@ -4,12 +4,13 @@ const PostSchema = new mongoose.Schema({
     title: {
         type: String,
         required: true,
-        unique: true
+        unique: true,
+        minlength: 20
     },
     text: {
         type: String,
         required: true,
-        minlength: 30
+        minlength: 50
     },
     author: {
         type: "ObjectId",
