@@ -3,9 +3,10 @@ import Post from '../../components/post';
 import Header from '../../components/header';
 import Footer from '../../components/footer';
 import styles from './index.module.css';
-import { likePost, getAllPosts, getPostById } from '../../services/postService';
+import { likePost, getAllPosts, replyToPost } from '../../services/postService';
 import Spinner from '../../components/spinner';
 import Reply from '../../components/reply';
+import ReplyTextArea from '../../components/reply-textarea';
 
 class PostPage extends React.Component {
     constructor(props) {
@@ -20,7 +21,6 @@ class PostPage extends React.Component {
 
         this.handleClick = this.handleClick.bind(this);
     }
-
     componentDidMount() {
         const getPost = async () => {
             const id = this.props.match.params.id;
@@ -51,6 +51,13 @@ class PostPage extends React.Component {
         likePost(this.state.post._id);
     }
 
+    handleReplyClick = async (e, text) => {
+        e.preventDefault();
+        const id = this.props.match.params.id;
+        await replyToPost(text, id);
+        window.location.reload(false);
+    }
+
     render() {
         return (
             <Fragment>
@@ -63,6 +70,7 @@ class PostPage extends React.Component {
                             handleClick={this.handleClick}
                         />
                     }
+                    <ReplyTextArea postId={this.props.match.params.id} handleReplyClick={this.handleReplyClick}/>
                     <div className={styles['replies-container']}>
                         {this.state.isLoading ? <Spinner /> :
                             this.state.post.replies.map(r => (
@@ -70,7 +78,6 @@ class PostPage extends React.Component {
                             ))
                         }
                     </div>
-
                 </div>
                 <Footer />
             </Fragment>

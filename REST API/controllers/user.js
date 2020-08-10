@@ -1,8 +1,6 @@
 const User = require('../models/user');
-const BlackList = require('../models/blacklist');
 const { returnHashedPassword, generateToken, comparePasswords, verifyToken } = require('../utils/authentication');
 const config = require('../config/config');
-const blacklist = require('../models/blacklist');
 
 
 module.exports = {
@@ -96,6 +94,32 @@ module.exports = {
                 });
             };
 
+        }
+    }, 
+    put: {
+        updateUser: async (req, res) => {
+            try {
+                const userId = req.params.id;
+                const url = req.body.url;
+                console.log(url);
+                const userObj = await User.findByIdAndUpdate(userId, {avatarUrl: url});
+
+                if (!userObj) {
+                    return res.send({
+                        message: 'User not found!'
+                    })
+                }
+
+                res.send({
+                    message: 'Successfully updated!',
+                    data: userObj
+                });
+
+            } catch (err) {
+                res.send({
+                    message: err.message
+                });
+            };
         }
     }
 };

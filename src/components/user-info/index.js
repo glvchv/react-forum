@@ -3,9 +3,12 @@ import styles from './index.module.css';
 import authContext from '../../context/authContext';
 import { withRouter, useHistory } from 'react-router-dom';
 import { dispatchSuccess } from '../../utils/setNotification';
+import { updateAvatar } from '../../services/userService';
+import Minified from '../minified-post';
 
-const UserInfo = ( props ) => {
+const UserInfo = (props) => {
     const [isOwn, setIsOwn] = useState(false);
+    const [url, setUrl] = useState('');
     const context = useContext(authContext);
     const { user } = props;
     const history = useHistory();
@@ -19,7 +22,16 @@ const UserInfo = ( props ) => {
         history.push('/');
         context.logOut();
         dispatchSuccess('Successfully logged out!');
-    } 
+    }
+
+    const handleUrlChange = (e) => {
+        setUrl(e.target.value);
+    }
+
+    const handleAvatarUrl = async () => {
+        await updateAvatar(url);
+        window.location.reload(true);
+    }
 
     return (
         <div className={styles.wrapper}>
@@ -27,23 +39,30 @@ const UserInfo = ( props ) => {
                 <img src={user.avatarUrl || process.env.PUBLIC_URL + '/default.png'} className={styles.avatar} />
                 {isOwn ?
                     (<Fragment>
-                        <input type='file' />
-                        <button className={styles['upload-btn']}>Upload</button>
+                        <input type='text' placeholder='Add your avatar url here...' onChange={handleUrlChange} />
+                        <button className={styles['upload-btn']} onClick={handleAvatarUrl}>Upload</button>
+                        <button className={styles.logout} onClick={handleLogout}>Logout</button>
                     </Fragment>)
                     : ''
                 }
-                <button className={styles.logout} onClick={handleLogout}>Logout</button>
+
             </div>
             <div className={styles['personal-section']}>
                 <div className={styles.leftside}>
                     <p><small>Username: </small>{user.username}</p>
-                    <p><small>Full name: </small>{user.fullname || 'Unknown'}</p>
                 </div>
                 <div className={styles.rightside}>
                     <p><small>Posted: </small>{user.posts.length} times</p>
                 </div>
             </div>
-
+            <h1 className={styles.centered}>Your posts: </h1>
+            <div className={styles['posts-wrapper']}>
+                {user.posts.length === 0 ? (<p className={styles.centered}>You have not posted yet!</p>) :
+                    user.posts.map((p, i) => (
+                        <Minified key={i} post={p} />
+                    ))
+                }
+            </div>
         </div>
     )
 }

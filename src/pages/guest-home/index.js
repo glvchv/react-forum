@@ -29,7 +29,7 @@ const GuestPage = (props) => {
             isSubscribed = false;
         }
 
-    }, [])
+    }, []);
     console.log(posts);
     return (
         <Fragment>

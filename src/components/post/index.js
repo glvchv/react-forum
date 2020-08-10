@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import styles from './index.module.css';
 import Button from '../button';
-import Spinner from  '../spinner';
-import  {Link } from 'react-router-dom';
+import Spinner from '../spinner';
+import { Link } from 'react-router-dom';
 
 const Post = ({ post, likes, hasLiked, handleClick }) => {
     const [isAuth, setIsAuth] = useState(false);
@@ -12,7 +12,7 @@ const Post = ({ post, likes, hasLiked, handleClick }) => {
             setIsAuth(true);
         }
     }, []);
-    
+
     return (
         <div className={styles['post-body']}>
             <div className={styles['post-details']}>
@@ -31,12 +31,12 @@ const Post = ({ post, likes, hasLiked, handleClick }) => {
                     <p><small>Category:</small>{post.category}</p>
                     <p>{post.replies.length} <small>replies</small></p>
 
-                    {isAuth ? (<span className={styles.buttons}><Button link={'/edit'} type={"edit"} text={"Edit"} />
+                    {isAuth ? (<span className={styles.buttons}>
                         <Button link={'/delete'} type={"delete"} text={"Delete"} /></span>)
 
                         : (<span className={styles.like}>
                             <button disabled={hasLiked} onClick={handleClick}>💙</button></span>
-                            )}
+                        )}
                 </div>
             </div>
         </div>

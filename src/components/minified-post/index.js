@@ -26,7 +26,7 @@ const Minified = ({post}) => {
                 <hr />
                 <div className={styles.actions}>
                     <p>{post.likes.length} <small>likes</small></p>
-                    <p><small>Category:</small>{post.category}</p>
+                    <p><small>{post.category}</small></p>
                     <p>{post.replies.length} <small>replies</small></p>
                 </div>
             </div>

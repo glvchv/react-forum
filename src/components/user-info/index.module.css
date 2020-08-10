@@ -33,3 +33,12 @@
     cursor: pointer;
     margin: 10px;
 }
+.posts-wrapper {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 3vw;
+}
+.centered {
+    text-align: center;
+}

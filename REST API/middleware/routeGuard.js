@@ -2,7 +2,7 @@ const { verifyToken } = require('../utils/authentication');
 const User = require('../models/user');
 
 const authGuard = async (req, res, next) => {
-    const token = req.headers.authorization;
+    const token = req.headers.authorization.split(' ')[1];
     if (token == '') {
         res.send({
             message: 'Auhtorization token must be provided!'
@@ -22,8 +22,9 @@ const authGuard = async (req, res, next) => {
         next();
 
     } catch (err) {
+        console.log(err);
         res.send({
-            message: 'UNAUTHORIZED!',
+            message: err.message,
         })
     }
 };

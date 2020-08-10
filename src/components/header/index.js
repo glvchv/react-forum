@@ -28,6 +28,7 @@ class Header extends React.Component {
             <header>
                 <Link to={"/"} className={styles.forum}>{"< Forum />"}</Link>
                 <div className={styles.links}>
+                    <Link to='/create-post'>Create post</Link>
                     <Link to='/rules'>Rules</Link>
                 </div>
                 <div className={styles.links}>

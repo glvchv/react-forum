@@ -9,4 +9,6 @@ router.post('/register', userController.post.registerUser);
 router.post('/login', userController.post.loginUser);
 router.post('/verify', userController.post.verifyUser);
 
+router.put('/:id/update', userController.put.updateUser);
+
 module.exports = router;

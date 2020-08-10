@@ -1,3 +1,6 @@
+import { dispatchError, dispatchSuccess } from "../utils/setNotification";
+import { getCookie } from "../utils/getCookie";
+
 export async function loginUser(username, password, onSuccess, onFailure) {
     try {
 
@@ -70,7 +73,7 @@ export async function registerUser(username, password, onSuccess, onFailure) {
             onSuccess({
                 username: res.data.username,
                 id: res.data._id
-            })
+            }, res.message);
         } else {
             onFailure(res.message)
         }
@@ -87,7 +90,7 @@ export async function getProfile(id, token) {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': token
+                    'Authorization': `Bearer ${token}`
                 }
 
             }
@@ -97,6 +100,28 @@ export async function getProfile(id, token) {
         return res.data;
     } catch (err) {
         console.log(err.message);
+    }
+}
+
+export async function updateAvatar(string) {
+    const userId = localStorage.getItem('userId');
+    const token = getCookie('x-auth-token');
+
+    try {
+        const promise = await fetch(`http://localhost:175/api/user/${userId}/update`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify({url: string})
+        });
+
+        const res = await promise.json();
+        dispatchSuccess(res.message);
+        return res.data;
+    } catch (err) {
+        dispatchError(err.message)
     }
 }
 

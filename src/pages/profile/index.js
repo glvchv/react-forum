@@ -9,16 +9,13 @@ import { getCookie } from '../../utils/getCookie';
 
 const Profile = (props) => {
     const id = props.match.params.id;
-    console.log('ID is ' + id);
     const [user, setUser] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         async function getUserInfo() {
             const token = getCookie('x-auth-token');
-            console.log('Fetching functions is invoked!');
             const data = await getProfile(id, token);
-            console.log('USERDATA = ' + data);
             setUser(data);
             setIsLoading(false);
         }

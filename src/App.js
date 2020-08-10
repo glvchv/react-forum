@@ -9,7 +9,6 @@ import 'react-notifications-component/dist/theme.css'
 
 function App(props) {
   const [user, setUser] = useState(null);
-
   const logIn = (user) => {
     setUser({
       ...user
@@ -21,18 +20,16 @@ function App(props) {
   const logOut = () => {
     document.cookie = "x-auth-token= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
     localStorage.clear();
-    setUser({
-      user: null
-    });
-    window.location.reload(false);
+    setUser(null);
   }
 
   useEffect(() => {
     const token = getCookie('x-auth-token');
-    verifyUser(token, (user) => {
-      logIn(user);
-    });
-
+    if (token !== '') {
+      verifyUser(token, (user) => {
+        logIn(user);
+      });
+    } 
   }, []);
 
   return (

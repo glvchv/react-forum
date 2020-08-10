@@ -8,7 +8,8 @@ module.exports = {
     }, 
     patch: {
         replyToPost: async (req, res) => {
-            const { id, authorId, text } = req.body;
+            const id = req.params.id;
+            const { authorId, text } = req.body;
             const date = new Date();
             const reply = new Reply({
                 toPost: id,
