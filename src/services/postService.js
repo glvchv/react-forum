@@ -129,11 +129,36 @@ async function replyToPost(text, post) {
     }
 }
 
+async function deletePost(id) {
+    try {
+        const token = getCookie('x-auth-token');
+        const userId = localStorage.getItem('userId')
+
+        const promise = await fetch(`http://localhost:175/api/posts/${id}`,
+            {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({ userId: userId })
+            }
+        )
+
+        const res = await promise.json();
+        dispatchSuccess(res.message);
+        return res.data;
+    } catch (err) {
+        dispatchError(err.message);
+    }
+}
+
 export {
     getAllPosts,
     getPostById,
     likePost,
     likeReply,
     createPost,
-    replyToPost
+    replyToPost,
+    deletePost
 }

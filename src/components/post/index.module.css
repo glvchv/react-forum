@@ -37,3 +37,13 @@
     background-color: white;
     cursor: pointer;
 }
+
+.delete {
+    background-color: lightcoral;
+    color: white;
+    border: none;
+    border-radius: 40px;
+    padding: 10px;
+    cursor: pointer;
+    margin: 10px;
+}

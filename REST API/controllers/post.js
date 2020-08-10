@@ -1,5 +1,6 @@
 const Post = require('../models/post');
 const User = require('../models/user');
+const Reply = require('../models/reply');
 
 module.exports = {
     get: {
@@ -84,6 +85,26 @@ module.exports = {
                 res.send({
                     message: err.message
                 });
+            }
+        }
+    },
+    delete: {
+        deletePost: async (req, res) => {
+            const { id } = req.params;
+            const { userId } = req.body;
+
+            try {
+                const deletedPost = await Post.findByIdAndDelete(id);
+                await User.findByIdAndUpdate(userId, { $pull: { "posts":  { "_id": id} } } );
+                await Reply.deleteMany({toPost: id});
+
+                res.send({
+                    message: `Successfully deleted ${deletedPost.title}!`
+                });
+            } catch (err) {
+                res.send({
+                    message: err.message
+                })
             }
         }
     }

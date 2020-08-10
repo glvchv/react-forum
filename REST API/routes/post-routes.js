@@ -13,4 +13,6 @@ router.patch('/posts/:id', authGuard, replyController.patch.replyToPost);
 router.put('/posts/:id/like', authGuard, postController.put.likePost);
 router.put('/like/reply/:id', authGuard, replyController.put.likeReply);
 
+router.delete('/posts/:id', authGuard, postController.delete.deletePost);
+
 module.exports = router;

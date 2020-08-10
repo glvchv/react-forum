@@ -1,17 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import styles from './index.module.css';
-import Button from '../button';
 import Spinner from '../spinner';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import { deletePost } from '../../services/postService';
 
 const Post = ({ post, likes, hasLiked, handleClick }) => {
     const [isAuth, setIsAuth] = useState(false);
+    const history = useHistory();
 
     useEffect(() => {
         if (post.author._id == localStorage.getItem('userId')) {
             setIsAuth(true);
         }
     }, []);
+
+    const deleteHandler = async () => {
+        await deletePost(post._id);
+        history.push('/');
+    }
 
     return (
         <div className={styles['post-body']}>
@@ -32,7 +38,7 @@ const Post = ({ post, likes, hasLiked, handleClick }) => {
                     <p>{post.replies.length} <small>replies</small></p>
 
                     {isAuth ? (<span className={styles.buttons}>
-                        <Button link={'/delete'} type={"delete"} text={"Delete"} /></span>)
+                        <button className={styles.delete} onClick={deleteHandler}>Delete</button></span>)
 
                         : (<span className={styles.like}>
                             <button disabled={hasLiked} onClick={handleClick}>💙</button></span>
