@@ -36,7 +36,7 @@ const UserInfo = (props) => {
     return (
         <div className={styles.wrapper}>
             <div className={styles['avatar-section']}>
-                <img src={user.avatarUrl || process.env.PUBLIC_URL + '/default.png'} className={styles.avatar} />
+                <img src={user.avatarUrl || process.env.PUBLIC_URL + '/default.png'} className={styles.avatar} alt='avatar'/>
                 {isOwn ?
                     (<Fragment>
                         <input type='text' placeholder='Add your avatar url here...' onChange={handleUrlChange} />
@@ -55,9 +55,9 @@ const UserInfo = (props) => {
                     <p><small>Posted: </small>{user.posts.length} times</p>
                 </div>
             </div>
-            <h1 className={styles.centered}>Your posts: </h1>
+            <h1 className={styles.centered}>Posts: </h1>
             <div className={styles['posts-wrapper']}>
-                {user.posts.length === 0 ? (<p className={styles.centered}>You have not posted yet!</p>) :
+                {user.posts.length === 0 ? (<p className={styles.centered}>None...</p>) :
                     user.posts.map((p, i) => (
                         <Minified key={i} post={p} />
                     ))

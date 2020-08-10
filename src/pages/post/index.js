@@ -27,9 +27,8 @@ class PostPage extends React.Component {
             try {
                 const userId = localStorage.getItem('userId')
                 const data = await getAllPosts();
-                const currentPost = data.find(p => p._id == id);
-                console.log(currentPost);
-                const alreadyLiked = currentPost.likes.find(u => u == userId) === undefined ? false : true;
+                const currentPost = data.find(p => p._id === id);
+                const alreadyLiked = currentPost.likes.find(u => u === userId) === undefined ? false : true;
                 this.setState({
                     post: currentPost,
                     isLoading: false,

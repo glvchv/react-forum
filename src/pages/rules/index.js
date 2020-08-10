@@ -11,8 +11,8 @@ const RulesPage = () => {
             <Header />
             <div className={styles.container}>
                 <ul className={styles.list}>
-                    {rules.map((r, index) => (
-                        <li><Rule index ={index + 1} title={r.title} text={r.text} /></li>
+                    {rules.map((r, i) => (
+                        <li key={i}><Rule index={i + 1} title={r.title} text={r.text} /></li>
                     ))}
                 </ul>
             </div>

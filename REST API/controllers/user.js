@@ -101,7 +101,6 @@ module.exports = {
             try {
                 const userId = req.params.id;
                 const url = req.body.url;
-                console.log(url);
                 const userObj = await User.findByIdAndUpdate(userId, {avatarUrl: url});
 
                 if (!userObj) {

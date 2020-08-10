@@ -30,7 +30,6 @@ const GuestPage = (props) => {
         }
 
     }, []);
-    console.log(posts);
     return (
         <Fragment>
             <Header />

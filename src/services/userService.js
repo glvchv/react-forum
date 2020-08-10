@@ -42,7 +42,6 @@ export async function verifyUser(token, onSucces) {
 
         const res = await promise.json();
         if (res.data) {
-            console.log(res.message);
             onSucces({
                 username: res.data.username,
                 id: res.data._id
@@ -96,7 +95,6 @@ export async function getProfile(id, token) {
             }
         );
         const res = await promise.json();
-        console.log(res.data);
         return res.data;
     } catch (err) {
         console.log(err.message);

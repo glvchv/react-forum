@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import styles from './index.module.css';
-import Spinner from '../spinner';
 import { Link, useHistory } from 'react-router-dom';
 import { deletePost } from '../../services/postService';
 
@@ -9,10 +8,10 @@ const Post = ({ post, likes, hasLiked, handleClick }) => {
     const history = useHistory();
 
     useEffect(() => {
-        if (post.author._id == localStorage.getItem('userId')) {
+        if (post.author._id === localStorage.getItem('userId')) {
             setIsAuth(true);
         }
-    }, []);
+    }, [post.author._id]);
 
     const deleteHandler = async () => {
         await deletePost(post._id);

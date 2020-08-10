@@ -32,7 +32,6 @@ module.exports = {
                     message: 'Found!',
                     data: post
                 });
-                console.log('LIKES = ' + post);
             } catch (err) {
                 res.send({
                     message: err.message
@@ -54,7 +53,6 @@ module.exports = {
 
             } catch (err) {
                 res.send({
-                    err,
                     message: 'Duplication of posts!'
                 });
             }

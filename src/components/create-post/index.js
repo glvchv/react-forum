@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState } from 'react';
 import styles from './index.module.css';
 import ErrorMessage from '../error-message';
 import { createPost } from '../../services/postService';
@@ -47,16 +47,12 @@ const CreatePost = (props) => {
         validateText(e);
     };
 
-    const submitHandler = (e) => {
+    const submitHandler = async (e) => {
         e.preventDefault();
-        createPost(title, text, category,
+        await createPost(title, text, category,
             (msg) => {
                 props.history.push('/');
                 dispatchSuccess(msg)
-            },
-            (msg) => {
-                props.history.push('/create-post');
-                dispatchError(msg);
             }
         );  
     };
@@ -66,7 +62,6 @@ const CreatePost = (props) => {
     } else {
         isInvalid = true;
     };
-
     return (
         <div className={styles.wrapper}>
             <div className={styles.form}>

@@ -20,7 +20,6 @@ async function getAllPosts() {
 };
 
 async function getPostById(id) {
-    console.log('getPostById invoked!');
     try {
         const token = getCookie('x-auth-token');
         const promise = await fetch(`http://localhost:175/api/posts/${id}`,
@@ -82,7 +81,7 @@ async function likeReply(id) {
     }
 }
 
-async function createPost(title, text, category, onSuccess, onFailure) {
+async function createPost(title, text, category, onSuccess) {
     try {
         const token = getCookie('x-auth-token');
         const userId = localStorage.getItem('userId')
@@ -99,14 +98,16 @@ async function createPost(title, text, category, onSuccess, onFailure) {
         if (res.data) {
             onSuccess(res.message);
         }
+        if (res.message === 'Duplication of posts!') {
+            dispatchError(res.message)
+        }
     } catch (err) {
-        onFailure(err);
+        dispatchError(err.message)
     }
 }
 
 async function replyToPost(text, post) {
     try {
-        console.log(text, post);
         const token = getCookie('x-auth-token');
         const userId = localStorage.getItem('userId')
 

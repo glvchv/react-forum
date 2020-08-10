@@ -18,14 +18,14 @@ const Reply = ({ data }) => {
             const token = getCookie('x-auth-token');
             const userId = localStorage.getItem('userId');
             const userData = await getProfile(authorId, token);
-            const alreadyLiked = data.likes.find(u => u == userId) === undefined ? false : true;
+            const alreadyLiked = data.likes.find(u => u === userId) === undefined ? false : true;
             setHasLiked(alreadyLiked);
             setAuhtorInfo(userData);
             setLikes(data.likes.length);
             setIsLoading(false);
         }
         getAuhtorInfo();
-    }, [authorId]);
+    }, [authorId, data.likes]);
 
     const handleClick = () => {
         setHasLiked(true);
@@ -38,7 +38,9 @@ const Reply = ({ data }) => {
             {isLoading ? (<Spinner />) :
                 (<div className={styles.wrapper}>
                     <div className={styles['post-details']}>
-                        <img className={styles.avatar} src={authorInfo.avatarUrl || process.env.PUBLIC_URL + '/default.png'} />
+                        <img className={styles.avatar}
+                         src={authorInfo.avatarUrl || process.env.PUBLIC_URL + '/default.png'}
+                         alt='avatar' />
                         <p><Link to={`/profile/${authorInfo._id}`}>{authorInfo.username}</Link></p>
                         <small>{new Date(data.date).toLocaleString()}</small>
                     </div>

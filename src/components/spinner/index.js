@@ -5,7 +5,7 @@ const Spinner = () => {
 
     return (
         <div className={styles.container}>
-            <img className={styles.gif} src={process.env.PUBLIC_URL + '/spinner.gif'} />
+            <img className={styles.gif} src={process.env.PUBLIC_URL + '/spinner.gif'} alt='loading...'/>
         </div>
     )
 } 
