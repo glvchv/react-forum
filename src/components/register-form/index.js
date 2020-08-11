@@ -47,7 +47,7 @@ const RegisterForm = (props) => {
     const validateRePassword = (e) => {
         if (e.target.value === '') {
             setPasswordError('This field cannot be empty!');
-        } else if (password !== rePassword) {
+        } else if (password !== e.target.value) {
             setPasswordError('Passwords must match!');
         } 
         else {

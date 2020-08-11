@@ -33,7 +33,7 @@ const Post = ({ post, likes, hasLiked, handleClick }) => {
                 <hr />
                 <div className={styles.actions}>
                     <p>{likes} <small>likes</small></p>
-                    <p><small>Category:</small>{post.category}</p>
+                    <p><small>Category: </small>{post.category}</p>
                     <p>{post.replies.length} <small>replies</small></p>
 
                     {isAuth ? (<span className={styles.buttons}>

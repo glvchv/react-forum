@@ -20,7 +20,7 @@ const Navigation = () => {
                 <Route path='/' exact render={() => (context.user ? (<Home />) : (<Redirect to='/guest' />))} />
                 <Route path='/guest' render={() => (!context.user ? (<GuestPage />) : (<Redirect to='/' />))} />
                 <Route path='/login' component={Login} />
-                <Route path='/register'  component={context.user ? Register : Login} />
+                <Route path='/register'  component={context.user ? Home : Register} />
                 <Route path='/posts/:id' component={context.user ? Post : Login} />
                 <Route path='/profile/:id' component={context.user ? Profile : Login} />
                 <Suspense fallback={<Spinner />}>
