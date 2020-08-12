@@ -15,19 +15,13 @@ change avatar picture. Also can see more posts details and user profiles.
 
 ## How to start
 ### Rest Api
-myfolder/forum/REST API/: npm install
-myfolder/forum/REST API/: npm start
+myfolder/forum/REST API/: npm install <br />
+myfolder/forum/REST API/: npm start  <br />
 
 ### Front-end 
-myfolder/forum: npm install
-myforlder/forum: npm start
+myfolder/forum: npm install  <br />
+myforlder/forum: npm start  <br />
 
-
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
 
 ### `npm test`
 
