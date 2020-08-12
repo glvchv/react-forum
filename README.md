@@ -1,10 +1,27 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Idea
 
-In the project directory, you can run:
+A Single Page Application Forum created for posting opinions and exprerience about a topic, event, place, etc...
 
-### `npm start`
+## Accessibility 
+
+### Guest users
+Guest user have access to login and register page, as well as the top 3 most liked posts.
+
+### Authenticated users
+Authenticated users have access to all posts, seacrh posts by keyword, category, likes etc. Can write and like posts and replies to post,
+change avatar picture. Also can see more posts details and user profiles.
+
+## How to start
+### Rest Api
+myfolder/forum/REST API/: npm install
+myfolder/forum/REST API/: npm start
+
+### Front-end 
+myfolder/forum: npm install
+myforlder/forum: npm start
+
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
