@@ -26,7 +26,7 @@ const ReplyTextArea = (props) => {
             <div className={styles.form}>
                 <h1 className={styles.title}>Reply</h1>
                 <form className={styles.form} onSubmit={(e) => props.handleReplyClick(e, text)}>
-                    <textarea className={styles.text} onChange={handleChange}/>
+                    <textarea className={styles.text} id='reply-text-area' onChange={handleChange}/>
                     <ErrorMessage error={textError}/>
                     <button type="submit" disabled={isInvalid}>Submit</button>
                 </form>

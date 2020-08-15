@@ -20,7 +20,7 @@ module.exports = {
 
             try {
                 const replyObject = await reply.save();
-                await User.findByIdAndUpdate(authorId, {$push: {posts: id} });
+                //await User.findByIdAndUpdate(authorId, {$push: {posts: id} });
                 await Post.findByIdAndUpdate(id, {$push: {replies: replyObject._id} });
                 res.send({
                     message: 'Successfully replied!',

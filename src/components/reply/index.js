@@ -25,7 +25,7 @@ const Reply = ({ data }) => {
             setIsLoading(false);
         }
         getAuhtorInfo();
-    }, [authorId, data.likes]);
+    }, []);
 
     const handleClick = () => {
         setHasLiked(true);

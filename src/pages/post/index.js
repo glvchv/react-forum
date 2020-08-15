@@ -16,32 +16,47 @@ class PostPage extends React.Component {
             post: null,
             isLoading: true,
             hasLiked: false,
-            likes: 0
+            likes: 0,
+            hasReplied: false
         }
 
         this.handleClick = this.handleClick.bind(this);
     }
+    
     componentDidMount() {
-        const getPost = async () => {
-            const id = this.props.match.params.id;
-            try {
-                const userId = localStorage.getItem('userId')
-                const data = await getAllPosts();
-                const currentPost = data.find(p => p._id === id);
-                const alreadyLiked = currentPost.likes.find(u => u === userId) === undefined ? false : true;
-                this.setState({
-                    post: currentPost,
-                    isLoading: false,
-                    likes: currentPost.likes.length,
-                    hasLiked: alreadyLiked
-                });
-            } catch (err) {
-                console.log(err);
+        this.mounted = true;
+        this.getPost();
+    }
+    componentDidUpdate() {
+        const update = async () => {
+            if (this.state.hasReplied) {
+                await this.getPost()
             }
         }
-        getPost();
+        update();
+    }
+    componentWillUnmount() {
+        this.mounted = false;
     }
 
+    getPost = async () => {
+        const id = this.props.match.params.id;
+        try {
+            const userId = localStorage.getItem('userId')
+            const data = await getAllPosts();
+            const currentPost = data.find(p => p._id === id);
+            const alreadyLiked = currentPost.likes.find(u => u === userId) === undefined ? false : true;
+            this.mounted && this.setState({
+                post: currentPost,
+                isLoading: false,
+                likes: currentPost.likes.length,
+                hasLiked: alreadyLiked
+            });
+        } catch (err) {
+            console.log(err);
+        }
+    }
+    
     async handleClick() {
         this.setState((state) => ({
             likes: state.likes + 1,
@@ -49,13 +64,15 @@ class PostPage extends React.Component {
         }))
         likePost(this.state.post._id);
     }
-
+    
     handleReplyClick = async (e, text) => {
         e.preventDefault();
         const id = this.props.match.params.id;
         await replyToPost(text, id);
-        window.location.reload(false);
+        this.setState({ hasReplied: true });
+        document.getElementById('reply-text-area').value = '';
     }
+
 
     render() {
         return (
@@ -69,7 +86,7 @@ class PostPage extends React.Component {
                             handleClick={this.handleClick}
                         />
                     }
-                    <ReplyTextArea postId={this.props.match.params.id} handleReplyClick={this.handleReplyClick}/>
+                    <ReplyTextArea postId={this.props.match.params.id} handleReplyClick={this.handleReplyClick} />
                     <div className={styles['replies-container']}>
                         {this.state.isLoading ? <Spinner /> :
                             this.state.post.replies.map(r => (

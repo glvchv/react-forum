@@ -3,7 +3,7 @@ import styles from './index.module.css';
 import ErrorMessage from '../error-message';
 import { createPost } from '../../services/postService';
 import { withRouter } from 'react-router-dom';
-import { dispatchError, dispatchSuccess } from '../../utils/setNotification';
+import { dispatchSuccess } from '../../utils/setNotification';
 
 const CreatePost = (props) => {
     const options = [
