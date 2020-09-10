@@ -11,7 +11,7 @@ describe('Login-form component', () => {
             <BrowserRouter>
                 <LoginForm />
             </BrowserRouter>
-        );
+        ).toJSON();
         expect(tree).toMatchSnapshot();
     });
 })
