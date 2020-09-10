@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pagination component should render component 1`] = `
+<ul
+  className="wrapper"
+>
+  <li
+    className="active"
+    onClick={[Function]}
+  >
+    <a
+      className="a"
+      href="#!"
+    >
+      1
+    </a>
+  </li>
+  <li
+    className=""
+    onClick={[Function]}
+  >
+    <a
+      className="a"
+      href="#!"
+    >
+      2
+    </a>
+  </li>
+  <li
+    className=""
+    onClick={[Function]}
+  >
+    <a
+      className="a"
+      href="#!"
+    >
+      3
+    </a>
+  </li>
+  <li
+    className=""
+    onClick={[Function]}
+  >
+    <a
+      className="a"
+      href="#!"
+    >
+      4
+    </a>
+  </li>
+</ul>
+`;
