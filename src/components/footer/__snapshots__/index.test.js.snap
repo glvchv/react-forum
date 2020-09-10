@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer component should render footer 1`] = `
+<footer
+  className="wrap"
+>
+  <a
+    className="forum"
+    href="/"
+    onClick={[Function]}
+  >
+    Forum™
+  </a>
+  <p>
+    © 2020 - All Rights Reserved.
+  </p>
+</footer>
+`;
