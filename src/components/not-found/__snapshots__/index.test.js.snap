@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Not-found component should render component 1`] = `
+Array [
+  <Header />,
+  <div
+    className="container"
+  >
+    <h1
+      className="status"
+    >
+      404
+    </h1>
+    <h2
+      className="msg"
+    >
+      Oops... Seems like this page does not exist!
+    </h2>
+    <a
+      href="/"
+      onClick={[Function]}
+    >
+      <button
+        className="gbBtn"
+      >
+        <b>
+          Home
+        </b>
+      </button>
+    </a>
+  </div>,
+  <Footer />,
+]
+`;
