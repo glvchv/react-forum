@@ -5,7 +5,6 @@ import Footer from '../footer';
 import styles from './index.module.css';
 
 const NotFound = () => {
-    console.log('Not found inited');
     return (
         <Fragment>
             <Header />
