@@ -1,0 +1,222 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Post component should render liked post 1`] = `
+<div
+  className="post-body"
+>
+  <div
+    className="post-details"
+  >
+    <img
+      alt="avatar"
+      className="avatar"
+      src="https://localhost:0000/test"
+    />
+    <p>
+      <a
+        href="/profile/123"
+        onClick={[Function]}
+      >
+        vld
+      </a>
+    </p>
+    <small>
+      Invalid Date
+    </small>
+  </div>
+  <div
+    className="main"
+  >
+    <h2
+      className="title"
+    >
+      TESTTESTTEST
+    </h2>
+    <p
+      className="text"
+    >
+      Testing the description value of the post
+    </p>
+    <hr />
+    <div
+      className="actions"
+    >
+      <p>
+         
+        <small>
+          likes
+        </small>
+      </p>
+      <p>
+        <small>
+          Category: 
+        </small>
+        other
+      </p>
+      <p>
+        4
+         
+        <small>
+          replies
+        </small>
+      </p>
+      <span
+        className="like"
+      >
+        <button
+          disabled={true}
+        >
+          💙
+        </button>
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Post component should render not liked post 1`] = `
+<div
+  className="post-body"
+>
+  <div
+    className="post-details"
+  >
+    <img
+      alt="avatar"
+      className="avatar"
+      src="https://localhost:0000/test"
+    />
+    <p>
+      <a
+        href="/profile/123"
+        onClick={[Function]}
+      >
+        vld
+      </a>
+    </p>
+    <small>
+      Invalid Date
+    </small>
+  </div>
+  <div
+    className="main"
+  >
+    <h2
+      className="title"
+    >
+      TESTTESTTEST
+    </h2>
+    <p
+      className="text"
+    >
+      Testing the description value of the post
+    </p>
+    <hr />
+    <div
+      className="actions"
+    >
+      <p>
+         
+        <small>
+          likes
+        </small>
+      </p>
+      <p>
+        <small>
+          Category: 
+        </small>
+        other
+      </p>
+      <p>
+        4
+         
+        <small>
+          replies
+        </small>
+      </p>
+      <span
+        className="like"
+      >
+        <button>
+          💙
+        </button>
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Post component should render post for author 1`] = `
+<div
+  className="post-body"
+>
+  <div
+    className="post-details"
+  >
+    <img
+      alt="avatar"
+      className="avatar"
+      src="https://localhost:0000/test"
+    />
+    <p>
+      <a
+        href="/profile/123"
+        onClick={[Function]}
+      >
+        vld
+      </a>
+    </p>
+    <small>
+      Invalid Date
+    </small>
+  </div>
+  <div
+    className="main"
+  >
+    <h2
+      className="title"
+    >
+      TESTTESTTEST
+    </h2>
+    <p
+      className="text"
+    >
+      Testing the description value of the post
+    </p>
+    <hr />
+    <div
+      className="actions"
+    >
+      <p>
+         
+        <small>
+          likes
+        </small>
+      </p>
+      <p>
+        <small>
+          Category: 
+        </small>
+        other
+      </p>
+      <p>
+        4
+         
+        <small>
+          replies
+        </small>
+      </p>
+      <span
+        className="buttons"
+      >
+        <button
+          className="delete"
+          onClick={[Function]}
+        >
+          Delete
+        </button>
+      </span>
+    </div>
+  </div>
+</div>
+`;
