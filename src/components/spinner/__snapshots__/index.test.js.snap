@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Spinner component should render component 1`] = `
+<div
+  className="container"
+>
+  <img
+    alt="loading..."
+    className="gif"
+    src="/spinner.gif"
+  />
+</div>
+`;
