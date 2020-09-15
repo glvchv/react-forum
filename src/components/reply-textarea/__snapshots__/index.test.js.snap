@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Reply-textarea component should render component 1`] = `
+<div
+  className="wrapper"
+>
+  <div
+    className="form"
+  >
+    <h1
+      className="title"
+    >
+      Reply
+    </h1>
+    <form
+      className="form"
+      onSubmit={[Function]}
+    >
+      <textarea
+        className="text"
+        id="reply-text-area"
+        onChange={[Function]}
+      />
+      <ErrorMessage
+        error=""
+      />
+      <button
+        disabled={true}
+        type="submit"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+</div>
+`;
