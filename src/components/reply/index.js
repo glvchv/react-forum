@@ -13,18 +13,18 @@ const Reply = ({ data }) => {
     const [hasLiked, setHasLiked] = useState(false);
     const [likes, setLikes] = useState(null);
 
+    async function getAuthorInfo() {
+        const token = getCookie('x-auth-token');
+        const userId = localStorage.getItem('userId');
+        const userData = await getProfile(authorId, token);
+        const alreadyLiked = data.likes.find(u => u === userId) === undefined ? false : true;
+        setHasLiked(alreadyLiked);
+        setAuhtorInfo(userData);
+        setLikes(data.likes.length);
+        setIsLoading(false);
+    }
     useEffect(() => {
-        async function getAuhtorInfo() {
-            const token = getCookie('x-auth-token');
-            const userId = localStorage.getItem('userId');
-            const userData = await getProfile(authorId, token);
-            const alreadyLiked = data.likes.find(u => u === userId) === undefined ? false : true;
-            setHasLiked(alreadyLiked);
-            setAuhtorInfo(userData);
-            setLikes(data.likes.length);
-            setIsLoading(false);
-        }
-        getAuhtorInfo();
+        getAuthorInfo();
     }, []);
 
     const handleClick = () => {

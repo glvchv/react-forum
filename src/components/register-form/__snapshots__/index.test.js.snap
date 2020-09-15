@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Register-form component should render component 1`] = `
+<div
+  className="login-page"
+>
+  <div
+    className="form"
+  >
+    <h1
+      className="title"
+    >
+      Sign up
+    </h1>
+    <form
+      className="login-form"
+      onSubmit={[Function]}
+    >
+      <label
+        className="label"
+      >
+        Username:
+      </label>
+      <input
+        onChange={[Function]}
+        placeholder="johndoe89"
+        type="text"
+      />
+      <ErrorMessage
+        error=""
+      />
+      <label
+        className="label"
+      >
+        Password:
+      </label>
+      <input
+        onChange={[Function]}
+        placeholder="********"
+        type="password"
+      />
+      <label
+        className="label"
+      >
+        Repeat password:
+      </label>
+      <input
+        onChange={[Function]}
+        placeholder="********"
+        type="password"
+      />
+      <ErrorMessage
+        error=""
+      />
+      <button
+        disabled={false}
+        type="submit"
+      >
+        register
+      </button>
+      <p
+        className="message"
+      >
+        Already registered? 
+        <a
+          href="/login"
+          onClick={[Function]}
+        >
+          Sign in
+        </a>
+      </p>
+    </form>
+  </div>
+</div>
+`;

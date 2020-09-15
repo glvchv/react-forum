@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header component should render guest links 1`] = `
+<header>
+  <a
+    className="forum"
+    href="/"
+    onClick={[Function]}
+  >
+    &lt; Forum /&gt;
+  </a>
+  <div
+    className="links"
+  >
+    <a
+      href="/rules"
+      onClick={[Function]}
+    >
+      Rules
+    </a>
+  </div>
+  <Button
+    link="/login"
+    text="Login"
+    type="default"
+  />
+</header>
+`;

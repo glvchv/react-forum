@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search-field component should render component 1`] = `
+<div
+  className="wrapper"
+>
+  <p>
+    Search by category:
+  </p>
+  <select
+    onChange={[Function]}
+  >
+    <option
+      value="all"
+    >
+      See all
+    </option>
+    <option
+      value="sports"
+    >
+      Sports
+    </option>
+    <option
+      value="entertainment"
+    >
+      Entertainment
+    </option>
+    <option
+      value="education"
+    >
+      Education
+    </option>
+    <option
+      value="technology"
+    >
+      Technology
+    </option>
+    <option
+      value="other"
+    >
+      Other
+    </option>
+  </select>
+  <label>
+    Search by word:
+  </label>
+  <input
+    onChange={[Function]}
+    type="text"
+  />
+  <button
+    className="buttons"
+    onClick={[Function]}
+    value="newest"
+  >
+    Newest
+  </button>
+  <button
+    className="buttons"
+    onClick={[Function]}
+    value="top"
+  >
+    Top rated
+  </button>
+</div>
+`;

@@ -1,0 +1,125 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Minified-post component should render component for auth users 1`] = `
+<div
+  className="post-body"
+>
+  <div
+    className="post-details"
+  >
+    <img
+      alt="avatar"
+      className="avatar"
+      src="http://localhost:0000/test"
+    />
+    <p>
+      vld
+    </p>
+    <small>
+      8.10.2020 г., 0:00:00
+    </small>
+  </div>
+  <div
+    className="main"
+  >
+    <h2>
+      <a
+        className="title"
+        href="/posts/123"
+        onClick={[Function]}
+      >
+        Test
+      </a>
+    </h2>
+    <p
+      className="text"
+    >
+      Lorem Ipsum is simply dummy text of the printing and typesetting indus...
+    </p>
+    <hr />
+    <div
+      className="actions"
+    >
+      <p>
+        3
+         
+        <small>
+          likes
+        </small>
+      </p>
+      <p>
+        <small>
+          testing
+        </small>
+      </p>
+      <p>
+        3
+         
+        <small>
+          replies
+        </small>
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Minified-post component should render component for guests 1`] = `
+<div
+  className="post-body"
+>
+  <div
+    className="post-details"
+  >
+    <img
+      alt="avatar"
+      className="avatar"
+      src="/default.png"
+    />
+    <p>
+      vld
+    </p>
+    <small>
+      8.10.2020 г., 0:00:00
+    </small>
+  </div>
+  <div
+    className="main"
+  >
+    <h2
+      className="title"
+    >
+      Test
+    </h2>
+    <p
+      className="text"
+    >
+      Lorem Ipsum is simply dummy text of the printing and typesetting indus...
+    </p>
+    <hr />
+    <div
+      className="actions"
+    >
+      <p>
+        3
+         
+        <small>
+          likes
+        </small>
+      </p>
+      <p>
+        <small>
+          testing
+        </small>
+      </p>
+      <p>
+        3
+         
+        <small>
+          replies
+        </small>
+      </p>
+    </div>
+  </div>
+</div>
+`;

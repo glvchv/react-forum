@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button component test should render the default button 1`] = `
+<a
+  className="button  default"
+  href="/"
+  onClick={[Function]}
+>
+  test
+</a>
+`;
+
+exports[`Button component test should render the delete button 1`] = `
+<a
+  className="button  delete"
+  href="/"
+  onClick={[Function]}
+>
+  test
+</a>
+`;
+
+exports[`Button component test should render the edit button 1`] = `
+<a
+  className="button  edit"
+  href="/"
+  onClick={[Function]}
+>
+  test
+</a>
+`;
