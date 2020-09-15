@@ -1,0 +1,145 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`User-info component should render another user's profile 1`] = `
+<div
+  className="wrapper"
+>
+  <div
+    className="avatar-section"
+  >
+    <img
+      alt="avatar"
+      className="avatar"
+      src="/default.png"
+    />
+    
+  </div>
+  <div
+    className="personal-section"
+  >
+    <div
+      className="leftside"
+    >
+      <p>
+        <small>
+          Username: 
+        </small>
+        vld175
+      </p>
+    </div>
+    <div
+      className="rightside"
+    >
+      <p>
+        <small>
+          Posted: 
+        </small>
+        3
+         times
+      </p>
+    </div>
+  </div>
+  <h1
+    className="centered"
+  >
+    Posts: 
+  </h1>
+  <div
+    className="posts-wrapper"
+  >
+    <MinifiedPost
+      post={
+        Object {
+          "title": "0",
+        }
+      }
+    />
+    <MinifiedPost
+      post={
+        Object {
+          "title": "1",
+        }
+      }
+    />
+    <MinifiedPost
+      post={
+        Object {
+          "title": "2",
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`User-info component should render user's own profile 1`] = `
+<div
+  className="wrapper"
+>
+  <div
+    className="avatar-section"
+  >
+    <img
+      alt="avatar"
+      className="avatar"
+      src="/default.png"
+    />
+    
+  </div>
+  <div
+    className="personal-section"
+  >
+    <div
+      className="leftside"
+    >
+      <p>
+        <small>
+          Username: 
+        </small>
+        vld175
+      </p>
+    </div>
+    <div
+      className="rightside"
+    >
+      <p>
+        <small>
+          Posted: 
+        </small>
+        3
+         times
+      </p>
+    </div>
+  </div>
+  <h1
+    className="centered"
+  >
+    Posts: 
+  </h1>
+  <div
+    className="posts-wrapper"
+  >
+    <MinifiedPost
+      post={
+        Object {
+          "title": "0",
+        }
+      }
+    />
+    <MinifiedPost
+      post={
+        Object {
+          "title": "1",
+        }
+      }
+    />
+    <MinifiedPost
+      post={
+        Object {
+          "title": "2",
+        }
+      }
+    />
+  </div>
+</div>
+`;
