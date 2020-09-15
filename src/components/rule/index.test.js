@@ -4,7 +4,7 @@ import Rule from '.';
 
 describe('Rule component', () => {
     it('should render component', () => {
-        const tree = renderer.create(<Rule/>).toJSON();
+        const tree = renderer.create(<Rule title={'Test'}  text={'TESTING!'} index={1} />).toJSON();
         expect(tree).toMatchSnapshot();
     });
 });

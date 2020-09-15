@@ -7,10 +7,14 @@ exports[`Rule component should render component 1`] = `
   <h1
     className="title"
   >
+    1
     . 
+    Test
   </h1>
   <p
     className="text"
-  />
+  >
+    TESTING!
+  </p>
 </div>
 `;
